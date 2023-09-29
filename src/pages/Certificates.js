@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Modal,
@@ -13,68 +13,69 @@ import {
   Container,
   Flex,
   Heading,
-  Icon,
   Stack,
   Image,
-  useColorModeValue,
 } from "@chakra-ui/react";
-import {
-  FcAssistant,
-  FcCollaboration,
-  FcDonate,
-  FcManager,
-} from "react-icons/fc";
-// import Gambar from "../assets/profile.jpg"
+import Gambar1 from "../assets/Sertifikat FE.PNG";
+import Gambar3 from "../assets/Sertifikat Workshop Hima 2.PNG";
 
-const Card = ({ heading, description, icon, href }) => {
+const Card = ({ heading, description, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showImage, setShowImage] = useState(false);
+
+  const handleSertifikatkuClick = () => {
+    setShowImage(true);
+    onOpen();
+  };
 
   return (
     <>
-      <Box
-        flex="1"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-        p={5}
-      >
+      <Box flex="1" borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
         <Stack align={"start"} spacing={2}>
-          <Flex
-            w={16}
-            h={16}
-            align={"center"}
-            justify={"center"}
-            color={"white"}
-            rounded={"full"}
-            bg={useColorModeValue("gray.100", "gray.700")}
-          >
-            {icon}
-          </Flex>
           <Box mt={2}>
             <Heading size="md">{heading}</Heading>
             <Text mt={1} fontSize={"sm"}>
               {description}
             </Text>
           </Box>
-          <Button variant={"link"} colorScheme={"blue"} size={"sm"} onClick={onOpen}>
-            Learn more
+          <Button
+            variant={"link"}
+            colorScheme={"blue"}
+            size={"sm"}
+            onClick={handleSertifikatkuClick}
+          >
+            Sertifikatku
           </Button>
         </Stack>
       </Box>
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal
+        onClose={() => {
+          setShowImage(false);
+          onClose();
+        }}
+        isOpen={isOpen}
+        isCentered
+      >
         <ModalOverlay />
-        <ModalContent maxW="90vw"> {/* Mengatur lebar modal */}
+        <ModalContent maxW="50vw">
           <ModalHeader>{heading}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <div style={{ width: '100%', height: '600px', overflow: 'hidden' }}>
-              <Image src="https://drive.google.com/file/d/1uLnxVa-i8lj4eI3PkzYt8iugDK5ReJiz/view?usp=sharing" alt="Deskripsi Gambar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <Text>
-              This is the content of the Learn More popup card. You can add other elements
-              here as needed.
-            </Text>
+            {showImage ? (
+              <div style={{ width: "100%", height: "50%", overflow: "hidden" }}>
+                <Image
+                  src={imageUrl}
+                  alt="Deskripsi Gambar"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
+            ) : (
+              <Text>
+                This is the content of the Learn More popup card. You can add
+                other elements here as needed.
+              </Text>
+            )}
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -83,6 +84,11 @@ const Card = ({ heading, description, icon, href }) => {
 };
 
 const App = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <Box p={4}>
@@ -91,37 +97,70 @@ const App = () => {
           Sertifikat
         </Heading>
         <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis obcaecati ut
-          cupiditate pariatur, dignissimos, placeat amet officiis.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+          obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
         </Text>
       </Stack>
-
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={7} justify="center">
           <Card
-            heading={"Sapi 1"}
-            icon={<Icon as={FcAssistant} w={10} h={10} />}
-            description={"Lorem ipsum dolor sit amet catetur, adipisicing elit."}
-            href={"#"}
+            heading={"Sertifikat Front-End Engineering by Ruangguru"}
+            description={"-"}
+            imageUrl={Gambar1}
           />
           <Card
-            heading={"Kucing 2"}
-            icon={<Icon as={FcCollaboration} w={10} h={10} />}
-            description={"Lorem ipsum dolor sit amet catetur, adipisicing elit."}
-            href={"#"}
+            heading={"Sertifikat Workshop (2 Hari Belajar Menuju Internasional"}
+            description={
+              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+            }
+            imageUrl={"URL_GAMBAR_2"}
           />
           <Card
-            heading={"Heading 3"}
-            icon={<Icon as={FcDonate} w={10} h={10} />}
-            description={"Lorem ipsum dolor sit amet catetur, adipisicing elit."}
-            href={"#"}
+            heading={
+              "Sertifikat Workshop (How To Learn Web Programming Fundamental #1"
+            }
+            description={
+              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+            }
+            imageUrl={Gambar3}
           />
           <Card
-            heading={"Heading 4"}
-            icon={<Icon as={FcManager} w={10} h={10} />}
-            description={"Lorem ipsum dolor sit amet catetur, adipisicing elit."}
-            href={"#"}
+            heading={"Sertifikat 4"}
+            description={
+              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+            }
+            imageUrl={"URL_GAMBAR_4"}
           />
+        </Flex>
+        {showMore && (
+          <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
+            {/* Kartu-kartu tambahan akan ditampilkan di sini */}
+            <Card
+              heading={"Sertifikat 5"}
+              description={"-"}
+              imageUrl={"URL_GAMBAR_5"}
+            />
+            <Card
+              heading={"Sertifikat 6"}
+              description={"-"}
+              imageUrl={"URL_GAMBAR_6"}
+            />
+            <Card
+              heading={"Sertifikat 7"}
+              description={"-"}
+              imageUrl={"URL_GAMBAR_7"}
+            />
+            <Card
+              heading={"Sertifikat 8"}
+              description={"-"}
+              imageUrl={"URL_GAMBAR_8"}
+            />
+          </Flex>
+        )}
+        <Flex mt={4}>
+          <Button onClick={toggleShowMore}>
+            {showMore ? "Show More." : "Show More."}
+          </Button>
         </Flex>
       </Container>
     </Box>

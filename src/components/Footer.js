@@ -20,9 +20,8 @@ const Footer = () => {
     <Box>
       <Box bg="gray.800" color="white" py="4" textAlign="center">
         <Text fontFamily={montserratFont} mb="2">
-          © 2023 Nama Anda. Hak Cipta Dilindungi.
-        </Text>
-        <Flex justify="center" fontSize="xl">
+          © 2023 Bagas Dwi Pranata.
+          <Flex justify="center" fontSize="xl">
           <Link href="https://github.com/lolman-30" target="_blank" mx="2">
             <FaGithub />
           </Link>
@@ -39,6 +38,7 @@ const Footer = () => {
             <FaWhatsapp />
           </Link>
         </Flex>
+        </Text>
       </Box>
     </Box>
   );
