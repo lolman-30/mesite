@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Flex,
-  Link,
-  Text
-} from "@chakra-ui/react";
+import { Flex, Link, Text } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -22,29 +18,62 @@ const Navbar = () => {
       boxShadow="md"
       zIndex="999"
     >
-      {/* Left side of the navbar */}
       <Flex align="center">
         <Link as={ReactRouterLink} to="/" _hover={{ textDecoration: "none" }}>
           <Text fontSize="lg">Bagas Dwi Pranata</Text>
         </Link>
       </Flex>
 
-      {/* Center of the navbar */}
       <Flex justify="right" flex="1">
-        <Link as={ReactRouterLink} to="/Skills" display="flex" alignItems="right" _hover={{ textDecoration: "none" }} mr="10px">
-          <Text fontSize="lg">Skills</Text>
-        </Link>     
-        <Link as={ReactRouterLink} to="/Projects" display="flex" alignItems="right" _hover={{ textDecoration: "none" }} mr="10px">
-          <Text fontSize="lg">Projects</Text>
+        <Link
+          as={ReactRouterLink}
+          to="/"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
+          <Text fontSize="lg">Home</Text>
         </Link>
-        <Link as={ReactRouterLink} to="/Educations" display="flex" alignItems="right" _hover={{ textDecoration: "none" }} mr="10px">
-          <Text fontSize="lg">Educations</Text>
+        <Link
+          as={ReactRouterLink}
+          to="/Project"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
+          <Text fontSize="lg">Project</Text>
         </Link>
-        <Link as={ReactRouterLink} to="/Certificates" display="flex" alignItems="right" _hover={{ textDecoration: "none" }} mr="10px">
+        <Link
+          as={ReactRouterLink}
+          to="/Certificates"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
           <Text fontSize="lg">Certificates</Text>
         </Link>
-        <Link as={ReactRouterLink} to="/Experients" display="flex" alignItems="right" _hover={{ textDecoration: "none" }} mr="10px">
+        <Link
+          as={ReactRouterLink}
+          to="/Experients"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
           <Text fontSize="lg">Experiences</Text>
+        </Link>
+        <Link
+          as={ReactRouterLink}
+          to="/About"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
+          <Text fontSize="lg">About</Text>
         </Link>
       </Flex>
     </Flex>
