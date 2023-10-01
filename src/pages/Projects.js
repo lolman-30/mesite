@@ -14,9 +14,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/bagas.jpg";
-import Gambar2 from "../assets/bagas.jpg";
-import Gambar3 from "../assets/bagas.jpg";
+import Gambar1 from "../assets/Tugas Akhir.PNG";
+import Gambar2 from "../assets/api-wisata.PNG";
+import Gambar3 from "../assets/Diary.png";
+import Gambar4 from "../assets/Aplikasi Skripsi.PNG";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +46,7 @@ const Projects = () => {
       title: "SPGB (Sistem Pakar Gaya Belajar)",
       description:
         "SPGB merupakan tugas akhir/skripsi saya tentang penentuan gaya belajar pada siswa SMP Kelas 7, dimana dilakukan klasifikasi gaya belajar siswa kemudian hasilnya ditentukan menggunakan metode SVM (Support Vector Machine).",
-      image: Gambar3,
+      image: Gambar4,
     },
   ];
 
@@ -63,12 +64,12 @@ const Projects = () => {
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
         <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-          Proyek
+          Project
         </Heading>
-        <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
+        {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text>
+        </Text> */}
       </Stack>
 
       <Container maxW={"5xl"} mt={12}>
@@ -106,7 +107,7 @@ const Projects = () => {
         {/* Modal untuk proyek */}
         <Modal isOpen={isOpen} onClose={handleCloseModal} size="xl">
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent maxW="3xl">
             <ModalHeader>{selectedProject?.title}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>

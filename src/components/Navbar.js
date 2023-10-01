@@ -25,7 +25,7 @@ const Navbar = () => {
       </Flex>
 
       <Flex justify="right" flex="1">
-        <Link
+        {/* <Link
           as={ReactRouterLink}
           to="/"
           display="flex"
@@ -34,7 +34,7 @@ const Navbar = () => {
           mr="10px"
         >
           <Text fontSize="lg">Home</Text>
-        </Link>
+        </Link> */}
         <Link
           as={ReactRouterLink}
           to="/Project"
@@ -47,16 +47,6 @@ const Navbar = () => {
         </Link>
         <Link
           as={ReactRouterLink}
-          to="/Certificates"
-          display="flex"
-          alignItems="right"
-          _hover={{ textDecoration: "none" }}
-          mr="10px"
-        >
-          <Text fontSize="lg">Certificates</Text>
-        </Link>
-        <Link
-          as={ReactRouterLink}
           to="/Experients"
           display="flex"
           alignItems="right"
@@ -64,6 +54,16 @@ const Navbar = () => {
           mr="10px"
         >
           <Text fontSize="lg">Experiences</Text>
+        </Link>
+        <Link
+          as={ReactRouterLink}
+          to="/Certificates"
+          display="flex"
+          alignItems="right"
+          _hover={{ textDecoration: "none" }}
+          mr="10px"
+        >
+          <Text fontSize="lg">Certificates</Text>
         </Link>
         <Link
           as={ReactRouterLink}

@@ -79,12 +79,12 @@ const App = () => {
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
         <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-          Pengalaman
+          Experiences
         </Heading>
-        <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
+        {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text>
+        </Text> */}
       </Stack>
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={7} justify="center">
@@ -92,7 +92,7 @@ const App = () => {
             heading={"Frontend Engineering - Ruangguru Kampus Merdeka"}
             description={"Februari 2022 - Juli 2022"}
           />
-          <Card
+          {/* <Card
             heading={"Pengalaman 2"}
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit."
@@ -109,7 +109,7 @@ const App = () => {
             description={
               "Lorem ipsum dolor sit amet catetur, adipisicing elit."
             }
-          />
+          /> */}
         </Flex>
       </Container>
     </Box>
