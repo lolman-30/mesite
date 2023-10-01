@@ -84,87 +84,74 @@ const Card = ({ heading, description, imageUrl }) => {
 };
 
 const App = () => {
-  const [showMore, setShowMore] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
 
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
-  };
+  // const toggleShowMore = () => {
+  //   setShowMore(!showMore);
+  // };
 
   return (
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
         <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-          Sertifikat
+          Certificates
         </Heading>
-        <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
+        {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text>
+        </Text> */}
       </Stack>
       <Container maxW={"5xl"} mt={12}>
         <Flex flexWrap="wrap" gridGap={7} justify="center">
           <Card
             heading={"Sertifikat Front-End Engineering by Ruangguru"}
-            description={"-"}
             imageUrl={Gambar1}
           />
           <Card
             heading={"Sertifikat Workshop (2 Hari Belajar Menuju Internasional"}
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
             imageUrl={"URL_GAMBAR_2"}
           />
           <Card
             heading={
               "Sertifikat Workshop (How To Learn Web Programming Fundamental #1"
             }
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
             imageUrl={Gambar3}
           />
-          <Card
-            heading={"Sertifikat 4"}
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
-            imageUrl={"URL_GAMBAR_4"}
-          />
-        </Flex>
-        {showMore && (
-          <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
-            {/* Kartu-kartu tambahan akan ditampilkan di sini */}
-            <Card
-              heading={"Sertifikat 5"}
-              description={"-"}
-              imageUrl={"URL_GAMBAR_5"}
-            />
-            <Card
-              heading={"Sertifikat 6"}
-              description={"-"}
-              imageUrl={"URL_GAMBAR_6"}
-            />
-            <Card
-              heading={"Sertifikat 7"}
-              description={"-"}
-              imageUrl={"URL_GAMBAR_7"}
-            />
-            <Card
-              heading={"Sertifikat 8"}
-              description={"-"}
-              imageUrl={"URL_GAMBAR_8"}
-            />
-          </Flex>
-        )}
-        <Flex mt={4}>
-          <Button onClick={toggleShowMore}>
-            {showMore ? "Show More." : "Show More."}
-          </Button>
+          {/* <Card heading={"Sertifikat 4"} imageUrl={"URL_GAMBAR_4"} /> */}
         </Flex>
       </Container>
     </Box>
   );
 };
+// {showMore && (
+//   <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
+//     {/* Kartu-kartu tambahan akan ditampilkan di sini */}
+//     <Card
+//       heading={"Sertifikat 5"}
+//       description={"-"}
+//       imageUrl={"URL_GAMBAR_5"}
+//     />
+//     <Card
+//       heading={"Sertifikat 6"}
+//       description={"-"}
+//       imageUrl={"URL_GAMBAR_6"}
+//     />
+//     <Card
+//       heading={"Sertifikat 7"}
+//       description={"-"}
+//       imageUrl={"URL_GAMBAR_7"}
+//     />
+//     <Card
+//       heading={"Sertifikat 8"}
+//       description={"-"}
+//       imageUrl={"URL_GAMBAR_8"}
+//     />
+//   </Flex>
+// )}
+// <Flex mt={4}>
+//   <Button onClick={toggleShowMore}>
+//     {showMore ? "Show More." : "Show More."}
+//   </Button>
+// </Flex>
 
 export default App;

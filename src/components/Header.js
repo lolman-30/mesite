@@ -9,7 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Bagas from "../assets/bagas.jpg";
-import CV from "../assets/CV Kerja.pdf"; // Pastikan CV Kerja.pdf sudah benar-benar terhubung ke file yang tepat
+import CV from "../assets/CV Kerja.pdf";
 
 const backgroundImageStyle = {
   backgroundImage: `url(${Bagas})`,
@@ -50,8 +50,11 @@ export default function WithBackgroundImage() {
           textAlign="left" // Mengatur alignment teks
           color="white" // Warna teks
         >
-          Saya freshgraduate lulusan teknik informatika, yang suka dalam dunia
-          pemrograman web
+          Saya adalah seorang yang sangat antusias dalam dunia Teknologi
+          Informasi dengan fokus utama dalam pengembangan Frontend Web,
+          bersemangat untuk terus belajar, menciptakan antarmuka pengguna yang
+          menarik, dan berkontribusi dalam proyek-proyek yang melibatkan
+          teknologi terkini.
         </Text>
         <Stack direction={"row"} spacing={4} justifyContent="flex-start">
           <Button
@@ -59,18 +62,10 @@ export default function WithBackgroundImage() {
             rounded={"full"}
             color={"white"} // Warna teks tombol
             _hover={{ bg: "blue.600" }}
-            href={CV} // Pastikan URL CV Kerja.pdf sudah benar
-            download // Ini akan memberikan pilihan untuk mengunduh file
           >
-            Download CV
-          </Button>
-          <Button
-            bg={"blue.500"} // Warna tombol
-            rounded={"full"}
-            color={"white"} // Warna teks tombol
-            _hover={{ bg: "blue.600" }} // Efek hover yang lebih menarik
-          >
-            Contact Me
+            <a href={CV} download>
+              Download CV
+            </a>
           </Button>
         </Stack>
       </VStack>

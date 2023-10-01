@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
+import Icon from "./assets/logo.png";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main aria-label="App" className="App">
         <Helmet>
           <title>Bagas Dwi Pranata</title>
+          <link rel="icon" type="image/png" href={Icon} />
         </Helmet>
 
         <Router>
