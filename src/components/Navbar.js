@@ -1,8 +1,13 @@
 import React from "react";
 import { Flex, Link, Text } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const Navbar = () => {
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <Flex
       bg="gray.800"
@@ -19,62 +24,61 @@ const Navbar = () => {
       zIndex="999"
     >
       <Flex align="center">
-        <Link as={ReactRouterLink} to="/" _hover={{ textDecoration: "none" }}>
-          <Text fontSize="lg">Bagas Dwi Pranata</Text>
+        <Link
+          as={ReactRouterLink}
+          to="/"
+          smooth={true}
+          duration={500}
+          _hover={{ textDecoration: "none" }}
+          onClick={scrollToTop}
+        >
+          <Text fontSize="lg" className="cursor-pointer">
+            Bagas Dwi Pranata
+          </Text>
         </Link>
       </Flex>
 
-      <Flex justify="right" flex="1">
-        {/* <Link
-          as={ReactRouterLink}
-          to="/"
-          display="flex"
-          alignItems="right"
+      <Flex justify="right" flex="2">
+        <ScrollLink
+          to="projects"
+          spy={true}
+          smooth={true}
+          duration={500}
           _hover={{ textDecoration: "none" }}
-          mr="10px"
+          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
         >
-          <Text fontSize="lg">Home</Text>
-        </Link> */}
-        <Link
-          as={ReactRouterLink}
-          to="/Project"
-          display="flex"
-          alignItems="right"
+          <Text fontSize="lg">Proyek</Text>
+        </ScrollLink>
+        <ScrollLink
+          to="experiences"
+          spy={true}
+          smooth={true}
+          duration={500}
           _hover={{ textDecoration: "none" }}
-          mr="10px"
+          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
         >
-          <Text fontSize="lg">Project</Text>
-        </Link>
-        <Link
-          as={ReactRouterLink}
-          to="/Experients"
-          display="flex"
-          alignItems="right"
+          <Text fontSize="lg">Pengalaman</Text>
+        </ScrollLink>
+        <ScrollLink
+          to="certificates"
+          spy={true}
+          smooth={true}
+          duration={500}
           _hover={{ textDecoration: "none" }}
-          mr="10px"
+          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
         >
-          <Text fontSize="lg">Experiences</Text>
-        </Link>
-        <Link
-          as={ReactRouterLink}
-          to="/Certificates"
-          display="flex"
-          alignItems="right"
+          <Text fontSize="lg">Sertifikat</Text>
+        </ScrollLink>
+        <ScrollLink
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
           _hover={{ textDecoration: "none" }}
-          mr="10px"
+          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
         >
-          <Text fontSize="lg">Certificates</Text>
-        </Link>
-        <Link
-          as={ReactRouterLink}
-          to="/About"
-          display="flex"
-          alignItems="right"
-          _hover={{ textDecoration: "none" }}
-          mr="10px"
-        >
-          <Text fontSize="lg">About</Text>
-        </Link>
+          <Text fontSize="lg">Tentang</Text>
+        </ScrollLink>
       </Flex>
     </Flex>
   );

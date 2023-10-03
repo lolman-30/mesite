@@ -9,7 +9,8 @@ import {
 
 const About = () => {
   return (
-    <Box p={4}>
+    <div id="about">
+      <Box p={4}>
       <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
         <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
           Tentang
@@ -26,6 +27,7 @@ const About = () => {
         </Text>
       </Stack>
     </Box>
+    </div>
   );
 };
 

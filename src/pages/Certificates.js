@@ -91,36 +91,36 @@ const App = () => {
   // };
 
   return (
-    <Box p={4}>
-      <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-        <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-          Certificates
-        </Heading>
-        {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text> */}
-      </Stack>
-      <Container maxW={"5xl"} mt={12}>
-        <Flex flexWrap="wrap" gridGap={7} justify="center">
-          <Card
-            heading={"Sertifikat Front-End Engineering by Ruangguru"}
-            imageUrl={Gambar1}
-          />
-          <Card
-            heading={"Sertifikat Workshop (2 Hari Belajar Menuju Internasional"}
-            imageUrl={"URL_GAMBAR_2"}
-          />
-          <Card
-            heading={
-              "Sertifikat Workshop (How To Learn Web Programming Fundamental #1"
-            }
-            imageUrl={Gambar3}
-          />
-          {/* <Card heading={"Sertifikat 4"} imageUrl={"URL_GAMBAR_4"} /> */}
-        </Flex>
-      </Container>
-    </Box>
+    <div id="certificates">
+      <Box p={4}>
+        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
+          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
+            Sertifikat
+          </Heading>
+        </Stack>
+        <Container maxW={"5xl"} mt={12}>
+          <Flex flexWrap="wrap" gridGap={7} justify="center">
+            <Card
+              heading={"Sertifikat Front-End Engineering by Ruangguru"}
+              imageUrl={Gambar1}
+            />
+            <Card
+              heading={
+                "Sertifikat Workshop (2 Hari Belajar Menuju Internasional"
+              }
+              imageUrl={"URL_GAMBAR_2"}
+            />
+            <Card
+              heading={
+                "Sertifikat Workshop (How To Learn Web Programming Fundamental #1"
+              }
+              imageUrl={Gambar3}
+            />
+            {/* <Card heading={"Sertifikat 4"} imageUrl={"URL_GAMBAR_4"} /> */}
+          </Flex>
+        </Container>
+      </Box>
+    </div>
   );
 };
 // {showMore && (
