@@ -61,70 +61,72 @@ const Projects = () => {
   };
 
   return (
-    <Box p={4}>
-      <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-        <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-          Project
-        </Heading>
-        {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
+    <div id="projects">
+      <Box p={4}>
+        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
+          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
+            Proyek
+          </Heading>
+          {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
         </Text> */}
-      </Stack>
+        </Stack>
 
-      <Container maxW={"5xl"} mt={12}>
-        {projects.map((project, index) => (
-          <Flex mb="20px" key={index}>
-            <Image
-              src={project.image}
-              alt={`Proyek ${index + 1} Gambar`}
-              w={300}
-              h={200}
-              objectFit="cover"
-              onClick={() => handleOpenModal(project)}
-              cursor="pointer"
-            />
-            <Box ml={6}>
-              <Heading as="h2" size="lg" fontWeight="semibold">
-                {project.title}
-              </Heading>
-              <Text mt={2} color="gray.600">
-                {project.description}
-              </Text>
-              <Text
-                mt={4}
-                color="blue.500"
-                fontWeight="semibold"
+        <Container maxW={"5xl"} mt={12}>
+          {projects.map((project, index) => (
+            <Flex mb="20px" key={index}>
+              <Image
+                src={project.image}
+                alt={`Proyek ${index + 1} Gambar`}
+                w={300}
+                h={200}
+                objectFit="cover"
                 onClick={() => handleOpenModal(project)}
                 cursor="pointer"
-              >
-                Selengkapnya
-              </Text>
-            </Box>
-          </Flex>
-        ))}
-
-        {/* Modal untuk proyek */}
-        <Modal isOpen={isOpen} onClose={handleCloseModal} size="xl">
-          <ModalOverlay />
-          <ModalContent maxW="3xl">
-            <ModalHeader>{selectedProject?.title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              {/* Isi modal */}
-              <Image
-                src={selectedProject?.image}
-                alt={`${selectedProject?.title} Gambar`}
-                w="100%"
-                h={400}
-                objectFit="cover"
               />
-              <Text mt={4}>{selectedProject?.description}</Text>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      </Container>
-    </Box>
+              <Box ml={6}>
+                <Heading as="h2" size="lg" fontWeight="semibold">
+                  {project.title}
+                </Heading>
+                <Text mt={2} color="gray.600">
+                  {project.description}
+                </Text>
+                <Text
+                  mt={4}
+                  color="blue.500"
+                  fontWeight="semibold"
+                  onClick={() => handleOpenModal(project)}
+                  cursor="pointer"
+                >
+                  Selengkapnya
+                </Text>
+              </Box>
+            </Flex>
+          ))}
+
+          {/* Modal untuk proyek */}
+          <Modal isOpen={isOpen} onClose={handleCloseModal} size="xl">
+            <ModalOverlay />
+            <ModalContent maxW="3xl">
+              <ModalHeader>{selectedProject?.title}</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                {/* Isi modal */}
+                <Image
+                  src={selectedProject?.image}
+                  alt={`${selectedProject?.title} Gambar`}
+                  w="100%"
+                  h={400}
+                  objectFit="cover"
+                />
+                <Text mt={4}>{selectedProject?.description}</Text>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+        </Container>
+      </Box>
+    </div>
   );
 };
 

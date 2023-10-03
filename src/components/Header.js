@@ -47,7 +47,7 @@ export default function WithBackgroundImage() {
         </Text>
         <Text
           fontSize={useBreakpointValue({ base: "md", md: "lg" })}
-          textAlign="left" // Mengatur alignment teks
+          textAlign="justify" // Mengatur alignment teks
           color="white" // Warna teks
         >
           Saya adalah seorang yang sangat antusias dalam dunia Teknologi

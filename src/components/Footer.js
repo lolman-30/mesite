@@ -21,7 +21,8 @@ const Footer = () => {
               <FaGithub />
             </Link>
             <Link
-              href="https://www.linkedin.com/in/your_username"
+              href="https://www.linkedin.com/in/bagas-dwi-pranata-526506294?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BmRsMM7IiSMS4YIPr55BWCA%3D%3D
+              "
               target="_blank"
               mx="2"
             >
@@ -37,7 +38,7 @@ const Footer = () => {
             <Link href="https://t.me/bagasdpranata" target="_blank" mx="2">
               <FaTelegram />
             </Link>
-            <Link href="https://wa.me/+6282332345766" target="_blank" mx="2">
+            <Link href="https://wa.me/+62895637914508" target="_blank" mx="2">
               <FaWhatsapp />
             </Link>
           </Flex>
