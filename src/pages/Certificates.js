@@ -16,8 +16,8 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/Sertifikat FE.PNG";
-import Gambar3 from "../assets/Sertifikat Workshop Hima 2.PNG";
+import Gambar1 from "../assets/gambar/Sertifikat FE.PNG";
+import Gambar3 from "../assets/gambar/Sertifikat Workshop Hima 2.PNG";
 
 const Card = ({ heading, description, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -14,10 +14,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/Tugas Akhir.PNG";
-import Gambar2 from "../assets/api-wisata.PNG";
-import Gambar3 from "../assets/Diary.png";
-import Gambar4 from "../assets/Aplikasi Skripsi.PNG";
+import Gambar1 from "../assets/gambar/Tugas Akhir.PNG";
+import Gambar2 from "../assets/gambar/api-wisata.PNG";
+import Gambar3 from "../assets/gambar/Diary.png";
+import Gambar4 from "../assets/gambar/Aplikasi Skripsi.PNG";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);

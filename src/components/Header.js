@@ -50,11 +50,12 @@ export default function WithBackgroundImage() {
           textAlign="justify" // Mengatur alignment teks
           color="white" // Warna teks
         >
-          Saya adalah seorang yang sangat antusias dalam dunia Teknologi
-          Informasi dengan fokus utama dalam pengembangan Frontend Web,
-          bersemangat untuk terus belajar, menciptakan antarmuka pengguna yang
-          menarik, dan berkontribusi dalam proyek-proyek yang melibatkan
-          teknologi terkini.
+          Saya adalah lulusan Teknik Informatika yang antusias mendalam dalam
+          dunia pengembangan web. Saya sangat bersemangat terhadap teknologi
+          informasi dan pemrograman. Kegiatan seputar IT dan koding merupakan
+          energi bagi saya, dan rasa ingin tahu yang selalu membara. Saya sangat
+          menikmati tantangan belajar hal-hal baru dalam kehidupan saya,
+          terutama ketika itu berkaitan dengan dunia IT dan pemrograman.
         </Text>
         <Stack direction={"row"} spacing={4} justifyContent="flex-start">
           <Button

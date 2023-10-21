@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Flex, Link, Text } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
+import "../css/style.css";
+
 const Navbar = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [click] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu);
+  };
+
   const scrollToTop = () => {
     scroll.scrollToTop();
+    setShowMobileMenu(false); // Tutup menu saat mengklik logo
   };
 
   return (
     <Flex
+      className={`navbar ${showMobileMenu ? "mobile-menu-active" : ""}`}
       bg="gray.800"
       py="3"
       px="6"
@@ -23,6 +34,10 @@ const Navbar = () => {
       boxShadow="md"
       zIndex="999"
     >
+      <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+        {/* Ikon hamburger di sini */}
+        <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+      </button>
       <Flex align="center">
         <Link
           as={ReactRouterLink}
@@ -32,22 +47,26 @@ const Navbar = () => {
           _hover={{ textDecoration: "none" }}
           onClick={scrollToTop}
         >
-          <Text fontSize="lg" className="cursor-pointer">
+          <Text fontSize={click ? "md" : "lg"} className="cursor-pointer">
             Bagas Dwi Pranata
           </Text>
         </Link>
       </Flex>
 
-      <Flex justify="right" flex="2">
+      <Flex
+        className={`main-menu ${showMobileMenu ? "mobile-menu-open" : ""}`}
+        justify="right"
+        flex="2"
+      >
         <ScrollLink
           to="projects"
           spy={true}
           smooth={true}
           duration={500}
           _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
+          style={{ marginRight: "20px" }}
         >
-          <Text fontSize="lg">Proyek</Text>
+          <Text fontSize={click ? "md" : "lg"}>Proyek</Text>
         </ScrollLink>
         <ScrollLink
           to="experiences"
@@ -55,9 +74,9 @@ const Navbar = () => {
           smooth={true}
           duration={500}
           _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
+          style={{ marginRight: "20px" }}
         >
-          <Text fontSize="lg">Pengalaman</Text>
+          <Text fontSize={click ? "md" : "lg"}>Pengalaman</Text>
         </ScrollLink>
         <ScrollLink
           to="certificates"
@@ -65,9 +84,9 @@ const Navbar = () => {
           smooth={true}
           duration={500}
           _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
+          style={{ marginRight: "20px" }}
         >
-          <Text fontSize="lg">Sertifikat</Text>
+          <Text fontSize={click ? "md" : "lg"}>Sertifikat</Text>
         </ScrollLink>
         <ScrollLink
           to="about"
@@ -75,9 +94,9 @@ const Navbar = () => {
           smooth={true}
           duration={500}
           _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }} // Tambahkan style untuk margin kanan
+          style={{ marginRight: "20px" }}
         >
-          <Text fontSize="lg">Tentang</Text>
+          <Text fontSize={click ? "md" : "lg"}>Tentang</Text>
         </ScrollLink>
       </Flex>
     </Flex>

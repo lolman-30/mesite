@@ -4,14 +4,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
-// import Content from "./components/Content";
+import Content from "./components/Content";
 import Footer from "./components/Footer";
-import Icon from "./assets/logo.png";
-
-import Project from "./pages/Projects";
-import Experiences from "./pages/Experiences";
-import Certificates from "./pages/Certificates";
-import About from "./pages/About";
+import Icon from "./assets/gambar/logo.png";
 
 function App() {
   return (
@@ -26,11 +21,7 @@ function App() {
           <Box position="relative">
             <Navbar />
             <Header />
-            <Project />
-            <Experiences />
-            <Certificates />
-            <About />
-            {/* <Content /> */}
+            <Content />
             <Footer />
           </Box>
         </Router>
