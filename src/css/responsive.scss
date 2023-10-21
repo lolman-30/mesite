@@ -1,0 +1,19 @@
+.navbar {
+  // Aturan CSS untuk tampilan desktop
+  // ...
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    // Aturan CSS untuk tampilan responsif
+    // Misalnya, sembunyikan menu utama
+    .main-menu {
+      display: none;
+    }
+
+    // Tampilkan tombol hamburger
+    .hamburger-button {
+      display: block;
+    }
+  }
+}
