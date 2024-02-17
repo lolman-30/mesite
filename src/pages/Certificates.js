@@ -16,8 +16,9 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/gambar/Sertifikat FE.PNG";
-import Gambar3 from "../assets/gambar/Sertifikat Workshop Hima 2.PNG";
+import Gambar1 from "../assets/sertif/Sertifikat FE.PNG";
+import Gambar2 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
+import Gambar3 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
 
 const Card = ({ heading, description, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -84,11 +85,11 @@ const Card = ({ heading, description, imageUrl }) => {
 };
 
 const App = () => {
-  // const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
-  // const toggleShowMore = () => {
-  //   setShowMore(!showMore);
-  // };
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
 
   return (
     <div id="certificates">
@@ -108,7 +109,7 @@ const App = () => {
               heading={
                 "Sertifikat Workshop (2 Hari Belajar Menuju Internasional"
               }
-              imageUrl={"URL_GAMBAR_2"}
+              imageUrl={Gambar2}
             />
             <Card
               heading={
@@ -116,42 +117,52 @@ const App = () => {
               }
               imageUrl={Gambar3}
             />
-            {/* <Card heading={"Sertifikat 4"} imageUrl={"URL_GAMBAR_4"} /> */}
+            <Card
+              heading={"Sertifikat Sololearn - HTML"}
+              imageUrl={
+                "https://api2.sololearn.com/v2/certificates/CT-HYZNLLES/image/png"
+              }
+            />
+          </Flex>
+          {showMore && (
+            <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
+              {/* Kartu-kartu tambahan akan ditampilkan di sini */}
+              <Card
+                heading={"Sertifikat Sololearn - CSS"}
+                // description={"-"}
+                imageUrl={
+                  "https://api2.sololearn.com/v2/certificates/CT-93VSD8O0/image/png"
+                }
+              />
+              <Card
+                heading={"Sertifikat Sololearn - Javascript"}
+                imageUrl={
+                  "https://api2.sololearn.com/v2/certificates/CT-SAAMF27P/image/png"
+                }
+              />
+              <Card
+                heading={"Sertifikat Sololearn - Responsive Web Design"}
+                imageUrl={
+                  "https://api2.sololearn.com/v2/certificates/CT-DFELQHIZ/image/png"
+                }
+              />
+              <Card
+                heading={"Sertifikat Sololearn - React Redux"}
+                imageUrl={
+                  "https://api2.sololearn.com/v2/certificates/CT-6WWHGW0G/image/png"
+                }
+              />
+            </Flex>
+          )}
+          <Flex mt={4}>
+            <Button onClick={toggleShowMore}>
+              {showMore ? "Show More." : "Show More."}
+            </Button>
           </Flex>
         </Container>
       </Box>
     </div>
   );
 };
-// {showMore && (
-//   <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
-//     {/* Kartu-kartu tambahan akan ditampilkan di sini */}
-//     <Card
-//       heading={"Sertifikat 5"}
-//       description={"-"}
-//       imageUrl={"URL_GAMBAR_5"}
-//     />
-//     <Card
-//       heading={"Sertifikat 6"}
-//       description={"-"}
-//       imageUrl={"URL_GAMBAR_6"}
-//     />
-//     <Card
-//       heading={"Sertifikat 7"}
-//       description={"-"}
-//       imageUrl={"URL_GAMBAR_7"}
-//     />
-//     <Card
-//       heading={"Sertifikat 8"}
-//       description={"-"}
-//       imageUrl={"URL_GAMBAR_8"}
-//     />
-//   </Flex>
-// )}
-// <Flex mt={4}>
-//   <Button onClick={toggleShowMore}>
-//     {showMore ? "Show More." : "Show More."}
-//   </Button>
-// </Flex>
 
 export default App;
