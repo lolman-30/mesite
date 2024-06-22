@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Flex, Text, Box } from "@chakra-ui/react";
+import { Flex, Text, Box, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+
+import Gambar from "../assets/gambar/icon.png"; // Pastikan path ini benar
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -45,15 +47,13 @@ const Navbar = () => {
             onClick={scrollToTop}
             ml="10"
           >
-            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Bagas Dwi Pranata
-            </Text>
+            <Image src={Gambar} alt="Logo" height="55px" />
           </Box>
         </Flex>
 
         <Flex
           className={`main-menu ${showMobileMenu ? "mobile-menu-open" : ""}`}
-          justify="right"
+          justify="flex-end"
           flex="2"
           mr="10"
         >

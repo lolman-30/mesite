@@ -48,26 +48,22 @@ const Card = ({ heading, description, imageUrl }) => {
               },
             }}
           >
-            Sertifikatku
+            Details
           </Button>
         </Stack>
       </Box>
 
-      <Modal
-        onClose={onClose}
-        isOpen={isOpen}
-        isCentered
-      >
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent maxW="50vw">
           <ModalHeader>{heading}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-              <Image
-                src={imageUrl}
-                alt="Deskripsi Gambar"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+            <Image
+              src={imageUrl}
+              alt="Deskripsi Gambar"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -120,14 +116,16 @@ const App = () => {
               imageUrl={Gambar3}
             />
             <Card
-              heading={"Sertifikat Workshop (How To Learn Web Programming Fundamental #1)"}
+              heading={
+                "Sertifikat Workshop (How To Learn Web Programming Fundamental #1)"
+              }
               imageUrl={Gambar4}
             />
           </Flex>
           {/* {showMore && ( */}
-            {/* <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}> */}
-              {/* Kartu-kartu tambahan akan ditampilkan di sini */}
-            {/* </Flex> */}
+          {/* <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}> */}
+          {/* Kartu-kartu tambahan akan ditampilkan di sini */}
+          {/* </Flex> */}
           {/* )} */}
         </Container>
       </Box>
