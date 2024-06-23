@@ -53,7 +53,7 @@ const Card = ({ heading, date, description }) => {
               },
             }}
           >
-            Selengkapnya
+            Detail
           </Button>
         </Stack>
       </Box>

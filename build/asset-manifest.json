@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.5143f6a7.js",
+    "static/js/453.ffe9690d.chunk.js": "/static/js/453.ffe9690d.chunk.js",
+    "static/media/SERTIFIKAT BAGAS DWI PRANATA-1.jpg": "/static/media/SERTIFIKAT BAGAS DWI PRANATA-1.4771ac95db1aa75a90ee.jpg",
+    "static/media/bagas.jpg": "/static/media/bagas.7417f4a12f36740a1e5e.jpg",
+    "static/media/image4.PNG": "/static/media/image4.49ddd45fc4a07516d054.PNG",
+    "static/media/image3.PNG": "/static/media/image3.45c5969346d00c16c863.PNG",
+    "static/media/Sertifikat Workshop Hima 2.PNG": "/static/media/Sertifikat Workshop Hima 2.2d8c535c6411beb24716.PNG",
+    "static/media/Sertifikat FE.PNG": "/static/media/Sertifikat FE.c83720fc89925a36c591.PNG",
+    "static/media/Sertifikat Intensif_Laravel Web Development_Bagas Dwi Pranata.pdf": "/static/media/Sertifikat Intensif_Laravel Web Development_Bagas Dwi Pranata.9aabfe0be0ad2075f471.pdf",
+    "static/media/image1.png": "/static/media/image1.4ecc88313dfeb99ed65a.png",
+    "static/media/icon.png": "/static/media/icon.a546ad17284f949bd255.png",
+    "static/media/CV Kerja.pdf": "/static/media/CV Kerja.daacd66580763a6bb478.pdf",
+    "static/media/image5.PNG": "/static/media/image5.3a9ff6566bff059f318b.PNG",
+    "static/media/image2.png": "/static/media/image2.c8369911db02e3d23b8f.png",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.5143f6a7.js.map": "/static/js/main.5143f6a7.js.map",
+    "453.ffe9690d.chunk.js.map": "/static/js/453.ffe9690d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.5143f6a7.js"
+  ]
+}

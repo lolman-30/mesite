@@ -14,11 +14,11 @@ import {
   ModalContent,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/gambar/Diary-edited.png";
-import Gambar2 from "../assets/gambar/Sisman-edited.png"
-import Gambar3 from "../assets/gambar/AppSkripsi-edited.PNG";
-import Gambar4 from "../assets/gambar/Tugas Akhir-edited.PNG";
-import Gambar5 from "../assets/gambar/ApiWisata.PNG";
+import Gambar1 from "../assets/gambar/image1.png";
+import Gambar2 from "../assets/gambar/image2.png";
+import Gambar3 from "../assets/gambar/image3.PNG";
+import Gambar4 from "../assets/gambar/image4.PNG";
+import Gambar5 from "../assets/gambar/image5.PNG";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,11 +38,10 @@ const Projects = () => {
         Saya secara khusus bertanggung jawab untuk membuat landing page dan halaman admin.
       `,
       image: Gambar1,
-    },     
+    },
     {
       title: "Sistem Manajemen Karyawan",
-      description:
-        `Tujuan proyek ini adalah membangun aplikasi web untuk mengelola data karyawan dalam suatu organisasi, mencakup pendaftaran, pemantauan kinerja, serta penyusunan laporan dan evaluasi. Sebagai anggota tim proyek akhir Sanbercode, saya bertanggung jawab atas perencanaan, analisis kebutuhan aplikasi, pengembangan halaman karyawan, dan penyusunan laporan serta evaluasi proyek.`,
+      description: `Tujuan proyek ini adalah membangun aplikasi web untuk mengelola data karyawan dalam suatu organisasi, mencakup pendaftaran, pemantauan kinerja, serta penyusunan laporan dan evaluasi. Sebagai anggota tim proyek akhir Sanbercode, saya bertanggung jawab atas perencanaan, analisis kebutuhan aplikasi, pengembangan halaman karyawan, dan penyusunan laporan serta evaluasi proyek.`,
       image: Gambar2,
     },
     {
@@ -52,7 +51,7 @@ const Projects = () => {
       image: Gambar3,
     },
     {
-      title:"Website Restoran",
+      title: "Website Restoran",
       description:
         "Restoran WEB merupakan tugas kelompok. Pada Web ini bertemakan pemesanan tempat makan beserta pemesanan menu makanan yang dapat dipesan. Pada tugas kelompok ini saya mendapat bagian membuat delivery, rating pelayanan, dan halaman admin.",
       image: Gambar4,
