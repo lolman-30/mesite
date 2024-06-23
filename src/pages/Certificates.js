@@ -48,7 +48,7 @@ const Card = ({ heading, description, imageUrl }) => {
               },
             }}
           >
-            Sertifikatku
+            Details
           </Button>
         </Stack>
       </Box>

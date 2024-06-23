@@ -131,7 +131,7 @@ const Projects = () => {
                   sx={{ textDecoration: "none" }}
                   onClick={() => handleOpenModal(project)}
                 >
-                  Detail
+                  Details
                 </Text>
               </Box>
             </Flex>
