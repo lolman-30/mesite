@@ -1,52 +1,66 @@
 import React, { useState } from "react";
 import {
-  Text,
   Box,
-  Container,
-  Heading,
-  Stack,
+  Text,
   Flex,
+  Stack,
   Image,
   Modal,
+  Heading,
+  Container,
+  ModalBody,
+  ModalHeader,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import Gambar1 from "../assets/gambar/Tugas Akhir.PNG";
-import Gambar2 from "../assets/gambar/api-wisata.PNG";
-import Gambar3 from "../assets/gambar/Diary.png";
-import Gambar4 from "../assets/gambar/Aplikasi Skripsi.PNG";
+import Gambar1 from "../assets/gambar/image1.png";
+import Gambar2 from "../assets/gambar/image2.png";
+import Gambar3 from "../assets/gambar/image3.PNG";
+import Gambar4 from "../assets/gambar/image4.PNG";
+import Gambar5 from "../assets/gambar/image5.PNG";
 
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const montserratFont = "Montserrat, sans-serif";
+
   const projects = [
     {
-      title: "Restoran WEB",
-      description:
-        "Restoran WEB merupakan tugas kelompok. Pada Web ini bertemakan pemesanan tempat makan beserta pemesanan menu makanan yang dapat dipesan. Pada tugas kelompok ini saya mendapat bagian membuat delivery, rating pelayanan, dan halaman admin.",
+      title: "DIARY (Digital Library)",
+      description: `
+        Ini adalah proyek akhir yang kami kerjakan di program Ruangguru Kampus Merdeka. Dalam tim yang terdiri dari 5 orang, kami berhasil membuat sebuah website lengkap. Tim kami terbagi menjadi:
+    
+        - 3 anggota bertanggung jawab untuk Frontend
+        - 2 anggota bertanggung jawab untuk Backend
+    
+        Saya secara khusus bertanggung jawab untuk membuat landing page dan halaman admin.
+      `,
       image: Gambar1,
     },
     {
-      title: "Rest API - SAW (Simple Additive Weighting)",
-      description:
-        "Rest API - SAW ini merupakan bagian saya dalam tugas kelompok pembuatan aplikasi mobile saya beserta teman saya sayangnya tidak bisa menyelesaikan aplikasi mobile tersebut akan tetapi dosen masih toleransi terhadap pembuatan API-SAW.",
+      title: "Sistem Manajemen Karyawan",
+      description: `Tujuan proyek ini adalah membangun aplikasi web untuk mengelola data karyawan dalam suatu organisasi, mencakup pendaftaran, pemantauan kinerja, serta penyusunan laporan dan evaluasi. Sebagai anggota tim proyek akhir Sanbercode, saya bertanggung jawab atas perencanaan, analisis kebutuhan aplikasi, pengembangan halaman karyawan, dan penyusunan laporan serta evaluasi proyek.`,
       image: Gambar2,
-    },
-    {
-      title: "DIARY (Digital Library)",
-      description:
-        "DIARY ini merupakan project akhir yang dibuat dari ruangguru kampus merdeka, kami membuat full website dengan 5 orang yaitu 3 Frontend dan 2 Backend. Saya mendapat bagian membuat landing page, dan halaman admin.",
-      image: Gambar3,
     },
     {
       title: "SPGB (Sistem Pakar Gaya Belajar)",
       description:
         "SPGB merupakan tugas akhir/skripsi saya tentang penentuan gaya belajar pada siswa SMP Kelas 7, dimana dilakukan klasifikasi gaya belajar siswa kemudian hasilnya ditentukan menggunakan metode SVM (Support Vector Machine).",
+      image: Gambar3,
+    },
+    {
+      title: "Website Restoran",
+      description:
+        "Restoran WEB merupakan tugas kelompok. Pada Web ini bertemakan pemesanan tempat makan beserta pemesanan menu makanan yang dapat dipesan. Pada tugas kelompok ini saya mendapat bagian membuat delivery, rating pelayanan, dan halaman admin.",
       image: Gambar4,
+    },
+    {
+      title: "Rest API - SAW (Simple Additive Weighting)",
+      description:
+        "Rest API - SAW ini merupakan bagian saya dalam tugas kelompok pembuatan aplikasi mobile saya beserta teman saya sayangnya tidak bisa menyelesaikan aplikasi mobile tersebut akan tetapi dosen masih toleransi terhadap pembuatan API-SAW.",
+      image: Gambar5,
     },
   ];
 
@@ -64,42 +78,60 @@ const Projects = () => {
     <div id="projects">
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-            Proyek
+          <Heading
+            px="6"
+            py="3"
+            top="0"
+            left="0"
+            width="100%"
+            color={"gray.600"}
+            height="100px"
+            align="center"
+            fontWeight={"bold"}
+            fontSize={"6xl"}
+          >
+            Projects
           </Heading>
-          {/* <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
-        </Text> */}
         </Stack>
 
         <Container maxW={"5xl"} mt={12}>
           {projects.map((project, index) => (
             <Flex mb="20px" key={index}>
               <Image
+                h={200}
+                w={400}
+                cursor="pointer"
+                objectFit="cover"
                 src={project.image}
                 alt={`Proyek ${index + 1} Gambar`}
-                w={300}
-                h={200}
-                objectFit="cover"
                 onClick={() => handleOpenModal(project)}
-                cursor="pointer"
               />
               <Box ml={6}>
-                <Heading as="h2" size="lg" fontWeight="semibold">
+                <Heading
+                  as="h3"
+                  size="md"
+                  fontWeight="semibold"
+                  fontFamily={montserratFont}
+                >
                   {project.title}
                 </Heading>
-                <Text mt={2} color="gray.600">
+                <Text
+                  mt={2}
+                  color="black.200"
+                  textAlign="justify"
+                  fontFamily={montserratFont}
+                >
                   {project.description}
                 </Text>
                 <Text
-                  mt={4}
-                  color="blue.500"
+                  size={"md"}
+                  color={"blue.600"}
+                  cursor={"pointer"}
                   fontWeight="semibold"
+                  sx={{ textDecoration: "none" }}
                   onClick={() => handleOpenModal(project)}
-                  cursor="pointer"
                 >
-                  Selengkapnya
+                  Details
                 </Text>
               </Box>
             </Flex>
@@ -114,13 +146,13 @@ const Projects = () => {
               <ModalBody>
                 {/* Isi modal */}
                 <Image
+                  h={400}
+                  w="100%"
+                  objectFit="cover"
                   src={selectedProject?.image}
                   alt={`${selectedProject?.title} Gambar`}
-                  w="100%"
-                  h={400}
-                  objectFit="cover"
                 />
-                <Text mt={4}>{selectedProject?.description}</Text>
+                {/* <Text mt={4}>{selectedProject?.description}</Text> */}
               </ModalBody>
             </ModalContent>
           </Modal>

@@ -1,5 +1,5 @@
 {
-  "name": "mysite",
+  "name": "mesite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=20.14.0"
   }
 }

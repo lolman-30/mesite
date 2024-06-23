@@ -1,105 +1,105 @@
 import React, { useState } from "react";
-import { Flex, Link, Text } from "@chakra-ui/react";
-import { Link as ReactRouterLink } from "react-router-dom";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Flex, Text, Box, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-import "../css/style.css";
+import Gambar from "../assets/gambar/icon.png"; // Pastikan path ini benar
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [click] = useState(false);
+  const [click, setClick] = useState(false);
+
+  const montserratFont = "Montserrat, sans-serif";
 
   const toggleMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
+    setClick(!click);
   };
 
   const scrollToTop = () => {
-    scroll.scrollToTop();
-    setShowMobileMenu(false); // Tutup menu saat mengklik logo
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setShowMobileMenu(false);
   };
 
   return (
-    <Flex
-      className={`navbar ${showMobileMenu ? "mobile-menu-active" : ""}`}
-      bg="gray.800"
-      py="3"
-      px="6"
-      height="60px"
-      align="center"
-      color="white"
-      position="fixed"
-      top="0"
-      left="0"
-      width="100%"
-      boxShadow="md"
-      zIndex="999"
-    >
-      <button className="mobile-menu-button" onClick={toggleMobileMenu}>
-        {/* Ikon hamburger di sini */}
-        <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-      </button>
-      <Flex align="center">
-        <Link
-          as={ReactRouterLink}
-          to="/"
-          smooth={true}
-          duration={500}
-          _hover={{ textDecoration: "none" }}
-          onClick={scrollToTop}
-        >
-          <Text fontSize={click ? "md" : "lg"} className="cursor-pointer">
-            Bagas Dwi Pranata
-          </Text>
-        </Link>
-      </Flex>
-
+    <>
       <Flex
-        className={`main-menu ${showMobileMenu ? "mobile-menu-open" : ""}`}
-        justify="right"
-        flex="2"
+        px="6"
+        py="3"
+        top="0"
+        left="0"
+        width="100%"
+        zIndex="999"
+        bg="gray.800"
+        height="80px"
+        color="white"
+        align="center"
+        boxShadow="md"
+        className={`navbar ${showMobileMenu ? "mobile-menu-active" : ""}`}
       >
-        <ScrollLink
-          to="projects"
-          spy={true}
-          smooth={true}
-          duration={500}
-          _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }}
+        <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+          <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+        </button>
+        <Flex align="center">
+          <Box
+            as={Link}
+            to="/"
+            _hover={{ textDecoration: "none" }}
+            onClick={scrollToTop}
+            ml="10"
+          >
+            <Image src={Gambar} alt="Logo" height="55px" />
+          </Box>
+        </Flex>
+
+        <Flex
+          className={`main-menu ${showMobileMenu ? "mobile-menu-open" : ""}`}
+          justify="flex-end"
+          flex="2"
+          mr="10"
         >
-          <Text fontSize={click ? "md" : "lg"}>Proyek</Text>
-        </ScrollLink>
-        <ScrollLink
-          to="experiences"
-          spy={true}
-          smooth={true}
-          duration={500}
-          _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }}
-        >
-          <Text fontSize={click ? "md" : "lg"}>Pengalaman</Text>
-        </ScrollLink>
-        <ScrollLink
-          to="certificates"
-          spy={true}
-          smooth={true}
-          duration={500}
-          _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }}
-        >
-          <Text fontSize={click ? "md" : "lg"}>Sertifikat</Text>
-        </ScrollLink>
-        <ScrollLink
-          to="about"
-          spy={true}
-          smooth={true}
-          duration={500}
-          _hover={{ textDecoration: "none" }}
-          style={{ marginRight: "20px" }}
-        >
-          <Text fontSize={click ? "md" : "lg"}>Tentang</Text>
-        </ScrollLink>
+          <Box
+            as={Link}
+            to="/project"
+            _hover={{ textDecoration: "none" }}
+            style={{ marginRight: "20px" }}
+          >
+            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
+              Project
+            </Text>
+          </Box>
+          <Box
+            as={Link}
+            to="/experience"
+            _hover={{ textDecoration: "none" }}
+            style={{ marginRight: "20px" }}
+          >
+            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
+              Experience
+            </Text>
+          </Box>
+          <Box
+            as={Link}
+            to="/certificate"
+            _hover={{ textDecoration: "none" }}
+            style={{ marginRight: "20px" }}
+          >
+            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
+              Certificate
+            </Text>
+          </Box>
+          <Box
+            as={Link}
+            to="/contact"
+            _hover={{ textDecoration: "none" }}
+            style={{ marginRight: "20px" }}
+          >
+            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
+              Contact
+            </Text>
+          </Box>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 };
 

@@ -35,14 +35,6 @@ const Card = ({ heading, description, imageUrl }) => {
               {description}
             </Text>
           </Box>
-          <Button
-            variant={"link"}
-            colorScheme={"blue"}
-            size={"sm"}
-            onClick={handleClick}
-          >
-            Selengkapnya
-          </Button>
         </Stack>
       </Box>
 
@@ -61,51 +53,13 @@ const Card = ({ heading, description, imageUrl }) => {
           <ModalBody>
             {showImage ? (
               <div style={{ width: "100%", height: "50%", overflow: "hidden" }}>
-                <Text>
-                  Saya mengikuti program studi independen yang diselenggarakan
-                  oleh Kampus Merdeka, dengan fokus pada Frontend Engineering.
-                  Selama program ini, saya memperoleh pengetahuan dan
-                  keterampilan berikut:
-                </Text>
-                <ol>
-                  <li></li>
-                  <li>1. Menerapkan proses software development;</li>
-                  <li>2. Memahami System Development Life Cycle (SDLC);</li>
-                  <li>3. Menggunakan software project management;</li>
-                  <li>
-                    4. Melakukan rapid software development dan software
-                    testing;
-                  </li>
-                  <li>5. Mengembangkan software dengan VSCode;</li>
-                  <li>6. Menjalankan program dengan terminal;</li>
-                  <li>7. Menggunakan version control;</li>
-                  <li>8. Menjalankan Basic Git commands;</li>
-                  <li>9. Menyelesaikan konflik dengan Git;</li>
-                  <li>10. Melakukan Merge Request pada GitHub/GitLab;</li>
-                  <li>11. Melakukan review code dan menyelesaikannya;</li>
-                  <li>12. Menerapkan metode project management;</li>
-                  <li>13. Menggunakan tools project management;</li>
-                  <li>
-                    14. Menggunakan menggunakan HTML, CSS, Javascript, NPM/Yarn,
-                    Typescript, Webpack, dan Algorithm Revisit;
-                  </li>
-                  <li>
-                    15. Membuat website interaktif dengan HTML,
-                    Typescript/Javascript dan melakukan styling dengan CSS dan
-                    Preprocessor-nya;
-                  </li>
-                  <li>16. Menerapkan dasar-dasar pemrograman React;</li>
-                  <li>17. Melakukan Component Programming dengan React;</li>
-                  <li>18. Menggunakan Next.js Framework;</li>
-                  <li>19. Menggunakan Chakra-UI;</li>
-                  <li>20. Melakukan state management dengan Zustand;</li>
-                  <li>21. Membuat API;</li>
-                  <li>22. Menggunakan Postman;</li>
-                  <li>23. Melakukan consume API.</li>
-                </ol>
+                {description}
               </div>
             ) : (
-              <Text>Konten.</Text>
+              <Text>
+                This is the content of the Learn More popup card. You can add
+                other elements here as needed.
+              </Text>
             )}
           </ModalBody>
         </ModalContent>
@@ -119,8 +73,19 @@ const App = () => {
     <div id="experiences">
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-            Pengalaman
+          <Heading
+            px="6"
+            py="3"
+            top="0"
+            left="0"
+            width="100%"
+            color={"gray.600"}
+            height="100px"
+            align="center"
+            fontWeight={"bold"}
+            fontSize={"6xl"}
+          >
+            Experiences
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>
@@ -129,12 +94,10 @@ const App = () => {
               heading={"Frontend Engineering - Ruangguru Kampus Merdeka"}
               description={"Februari 2022 - Juli 2022"}
             />
-            {/* <Card
-            heading={"Pengalaman 2"}
-            description={
-              "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-            }
-            /> */}
+            <Card
+              heading={"Intensif Laravel Web Development - Sanbercode"}
+              description={"Januari 2024 - Februari 2024"}
+            />
           </Flex>
         </Container>
       </Box>

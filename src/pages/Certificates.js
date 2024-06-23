@@ -7,7 +7,6 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  Text,
   useDisclosure,
   Box,
   Container,
@@ -17,15 +16,14 @@ import {
   Image,
 } from "@chakra-ui/react";
 import Gambar1 from "../assets/sertif/Sertifikat FE.PNG";
-import Gambar2 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
-import Gambar3 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
+import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development_Bagas Dwi Pranata.pdf";
+import Gambar3 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
+import Gambar4 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
 
 const Card = ({ heading, description, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [showImage, setShowImage] = useState(false);
 
   const handleSertifikatkuClick = () => {
-    setShowImage(true);
     onOpen();
   };
 
@@ -35,48 +33,37 @@ const Card = ({ heading, description, imageUrl }) => {
         <Stack align={"start"} spacing={2}>
           <Box mt={2}>
             <Heading size="md">{heading}</Heading>
-            <Text mt={1} fontSize={"sm"}>
-              {description}
-            </Text>
           </Box>
           <Button
-            variant={"link"}
+            size={"md"}
+            variant="link"
             colorScheme={"blue"}
-            size={"sm"}
+            fontWeight="semibold"
             onClick={handleSertifikatkuClick}
+            sx={{
+              background: "none",
+              textDecoration: "none",
+              _hover: {
+                background: "none",
+              },
+            }}
           >
-            Sertifikatku
+            Details
           </Button>
         </Stack>
       </Box>
 
-      <Modal
-        onClose={() => {
-          setShowImage(false);
-          onClose();
-        }}
-        isOpen={isOpen}
-        isCentered
-      >
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent maxW="50vw">
           <ModalHeader>{heading}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            {showImage ? (
-              <div style={{ width: "100%", height: "50%", overflow: "hidden" }}>
-                <Image
-                  src={imageUrl}
-                  alt="Deskripsi Gambar"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-            ) : (
-              <Text>
-                This is the content of the Learn More popup card. You can add
-                other elements here as needed.
-              </Text>
-            )}
+            <Image
+              src={imageUrl}
+              alt="Deskripsi Gambar"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -95,8 +82,19 @@ const App = () => {
     <div id="certificates">
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-            Sertifikat
+          <Heading
+            px="6"
+            py="3"
+            top="0"
+            left="0"
+            width="100%"
+            color={"gray.600"}
+            height="100px"
+            align="center"
+            fontWeight={"bold"}
+            fontSize={"6xl"}
+          >
+            Certificates
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>
@@ -107,58 +105,28 @@ const App = () => {
             />
             <Card
               heading={
-                "Sertifikat Workshop (2 Hari Belajar Menuju Internasional"
+                "Sertifikat Intensif Laravel Web Development by SanberCode"
               }
               imageUrl={Gambar2}
             />
             <Card
               heading={
-                "Sertifikat Workshop (How To Learn Web Programming Fundamental #1"
+                "Sertifikat Workshop (2 Hari Belajar Menuju Internasional)"
               }
               imageUrl={Gambar3}
             />
             <Card
-              heading={"Sertifikat Sololearn - HTML"}
-              imageUrl={
-                "https://api2.sololearn.com/v2/certificates/CT-HYZNLLES/image/png"
+              heading={
+                "Sertifikat Workshop (How To Learn Web Programming Fundamental #1)"
               }
+              imageUrl={Gambar4}
             />
           </Flex>
-          {showMore && (
-            <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}>
-              {/* Kartu-kartu tambahan akan ditampilkan di sini */}
-              <Card
-                heading={"Sertifikat Sololearn - CSS"}
-                // description={"-"}
-                imageUrl={
-                  "https://api2.sololearn.com/v2/certificates/CT-93VSD8O0/image/png"
-                }
-              />
-              <Card
-                heading={"Sertifikat Sololearn - Javascript"}
-                imageUrl={
-                  "https://api2.sololearn.com/v2/certificates/CT-SAAMF27P/image/png"
-                }
-              />
-              <Card
-                heading={"Sertifikat Sololearn - Responsive Web Design"}
-                imageUrl={
-                  "https://api2.sololearn.com/v2/certificates/CT-DFELQHIZ/image/png"
-                }
-              />
-              <Card
-                heading={"Sertifikat Sololearn - React Redux"}
-                imageUrl={
-                  "https://api2.sololearn.com/v2/certificates/CT-6WWHGW0G/image/png"
-                }
-              />
-            </Flex>
-          )}
-          <Flex mt={4}>
-            <Button onClick={toggleShowMore}>
-              {showMore ? "Show More." : "Show More."}
-            </Button>
-          </Flex>
+          {/* {showMore && ( */}
+          {/* <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}> */}
+          {/* Kartu-kartu tambahan akan ditampilkan di sini */}
+          {/* </Flex> */}
+          {/* )} */}
         </Container>
       </Box>
     </div>
