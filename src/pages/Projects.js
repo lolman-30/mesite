@@ -90,7 +90,7 @@ const Projects = () => {
             fontWeight={"bold"}
             fontSize={"6xl"}
           >
-            Projects
+            Proyek
           </Heading>
         </Stack>
 

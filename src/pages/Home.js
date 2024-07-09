@@ -17,8 +17,12 @@ const backgroundImageStyle = {
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
-  position: "relative",
-  zIndex: 1,
+  width: "100%",
+  height: "100%",
+  position: "absolute",
+  top: 0,
+  left: 0,
+  zIndex: -1,
 };
 
 export default function WithBackgroundImage() {
@@ -31,8 +35,10 @@ export default function WithBackgroundImage() {
       px={useBreakpointValue({ base: 4, md: 8 })}
       color="white"
       boxShadow="lg"
-      style={backgroundImageStyle}
+      position="relative"
+      overflow="hidden"
     >
+      <Box style={backgroundImageStyle} />
       <Box
         position="absolute"
         top="0"
@@ -41,7 +47,7 @@ export default function WithBackgroundImage() {
         height="100%"
         bg="black"
         opacity="0.5"
-        zIndex="2"
+        zIndex="1"
       />
       <VStack
         w={{ base: "full", md: "45%" }}
@@ -50,7 +56,7 @@ export default function WithBackgroundImage() {
         textAlign="left"
         pl="8"
         position="relative"
-        zIndex="3"
+        zIndex="2"
       >
         <Text
           fontWeight={700}
@@ -58,19 +64,14 @@ export default function WithBackgroundImage() {
           fontSize={useBreakpointValue({ base: "3xl", md: "4xl" })}
           color="white"
         >
-          My Introduction is Bagas
+          Perkenalkan saya Bagas
         </Text>
         <Text
           fontSize={useBreakpointValue({ base: "md", md: "lg" })}
           textAlign="justify"
           color="white"
         >
-          "I am a graduate in Computer Engineering who has a deep enthusiasm for
-          the world of web development. I am highly passionate about information
-          technology and programming. Activities related to IT and coding are
-          energizing for me, and I have a constant burning curiosity. I
-          thoroughly enjoy the challenge of learning new things in my life,
-          especially when it comes to the IT and programming world."
+          "Saya adalah lulusan Teknik Komputer yang memiliki antusiasme mendalam terhadap dunia pengembangan web. Saya sangat bersemangat tentang teknologi informasi dan pemrograman. Aktivitas yang berhubungan dengan IT dan coding sangat memotivasi saya, dan saya memiliki rasa ingin tahu yang tak pernah padam. Saya sangat menikmati tantangan untuk mempelajari hal-hal baru dalam hidup saya, terutama yang berkaitan dengan dunia IT dan pemrograman."
         </Text>
         <Stack direction={"row"} spacing={4} justifyContent="flex-start">
           <Button
@@ -84,7 +85,7 @@ export default function WithBackgroundImage() {
               download
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              My Curriculum Vitae
+              CV Saya
             </a>
           </Button>
         </Stack>

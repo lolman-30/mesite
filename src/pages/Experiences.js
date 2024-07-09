@@ -61,13 +61,13 @@ const App = () => {
             fontWeight={"bold"}
             fontSize={"6xl"}
           >
-            Experiences
+            Pengalaman
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>
           <Flex flexWrap="wrap" gridGap={7} justify="center">
             <Card
-              heading={"Frontend Engineering - Ruangguru Kampus Merdeka"}
+              heading={"Frontend Engineering - Studi Independen Ruangguru Kampus Merdeka"}
               description={"Februari 2022 - Juli 2022"}
             />
             <Card

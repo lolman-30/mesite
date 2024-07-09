@@ -59,42 +59,42 @@ const Navbar = () => {
         >
           <Box
             as={Link}
-            to="/project"
+            to="/proyek"
             _hover={{ textDecoration: "none" }}
             style={{ marginRight: "20px" }}
           >
             <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Project
+              Proyek
             </Text>
           </Box>
           <Box
             as={Link}
-            to="/experience"
+            to="/pengalaman"
             _hover={{ textDecoration: "none" }}
             style={{ marginRight: "20px" }}
           >
             <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Experience
+              Pengalaman
             </Text>
           </Box>
           <Box
             as={Link}
-            to="/certificate"
+            to="/sertifikat"
             _hover={{ textDecoration: "none" }}
             style={{ marginRight: "20px" }}
           >
             <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Certificate
+              Sertifikat
             </Text>
           </Box>
           <Box
             as={Link}
-            to="/contact"
+            to="/kontak"
             _hover={{ textDecoration: "none" }}
             style={{ marginRight: "20px" }}
           >
             <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Contact
+              Kontak
             </Text>
           </Box>
         </Flex>

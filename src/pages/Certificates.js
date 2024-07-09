@@ -48,7 +48,7 @@ const Card = ({ heading, description, imageUrl }) => {
               },
             }}
           >
-            Details
+            Detail
           </Button>
         </Stack>
       </Box>
@@ -94,7 +94,7 @@ const App = () => {
             fontWeight={"bold"}
             fontSize={"6xl"}
           >
-            Certificates
+            Sertifikat
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>

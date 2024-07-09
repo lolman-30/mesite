@@ -35,30 +35,16 @@ const Contact = () => {
           fontWeight={"bold"}
           fontSize={"6xl"}
         >
-          Contact
+          Kontak
         </Heading>
         <Grid templateColumns="repeat(2, 1fr)" gap={6} w="full">
           <GridItem mr={5}>
             <Text as="h1" fontSize="3xl" fontWeight="bold" mb={4}>
-              Let's work together
+              Ayo Kerja Sama
             </Text>
             <Text mb={4} textAlign="justify" fontFamily={montserratFont}>
-              I am always open to discussing new projects, creative ideas, or
-              opportunities to be part of your vision. If you have an exciting
-              project or an innovative idea, let's collaborate and make it a
-              reality. I look forward to exploring how we can work together to
-              achieve your company's goals and create something extraordinary.
+              Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif, atau peluang untuk menjadi bagian dari visi Anda. Jika Anda memiliki proyek menarik atau ide inovatif, mari kita berkolaborasi dan mewujudkannya. Saya sangat antusias untuk mengeksplorasi bagaimana kita dapat bekerja sama untuk mencapai tujuan perusahaan Anda dan menciptakan sesuatu yang luar biasa.
             </Text>
-            {/* <Button
-              bg="gray.800"
-              color="white"
-              mt={1}
-              w="full"
-              fontFamily={montserratFont}
-              href="mailto:bagasdwipranata@gmail.com"
-            >
-              Send me an Email
-            </Button> */}
           </GridItem>
           <GridItem ml={5}>
             <Text
@@ -68,7 +54,7 @@ const Contact = () => {
               mb={2}
               mt={5}
             >
-              Follow on social
+              Ikuti di media sosial
             </Text>
             <HStack spacing={4}>
               <Link href="https://github.com/lolman-30" target="_blank" mx="2">
@@ -115,7 +101,7 @@ const Contact = () => {
               mb={2}
               mt={5}
             >
-              Phone
+              No. HP
             </Text>
             <HStack>
               <Text fontFamily={montserratFont}>+62 895 6379 14508</Text>
