@@ -71,7 +71,7 @@ export default function WithBackgroundImage() {
           textAlign="justify"
           color="white"
         >
-          "Saya adalah lulusan Teknik Komputer yang memiliki antusiasme mendalam terhadap dunia pengembangan web. Saya sangat bersemangat tentang teknologi informasi dan pemrograman. Aktivitas yang berhubungan dengan IT dan coding sangat memotivasi saya, dan saya memiliki rasa ingin tahu yang tak pernah padam. Saya sangat menikmati tantangan untuk mempelajari hal-hal baru dalam hidup saya, terutama yang berkaitan dengan dunia IT dan pemrograman."
+          "Saya adalah lulusan Teknik Informatika yang memiliki antusiasme mendalam terhadap dunia pengembangan web. Saya sangat bersemangat tentang teknologi informasi dan pemrograman. Aktivitas yang berhubungan dengan IT dan coding sangat memotivasi saya, dan saya memiliki rasa ingin tahu yang tak pernah padam. Saya sangat menikmati tantangan untuk mempelajari hal-hal baru dalam hidup saya, terutama yang berkaitan dengan dunia IT dan pemrograman."
         </Text>
         <Stack direction={"row"} spacing={4} justifyContent="flex-start">
           <Button
