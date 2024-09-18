@@ -51,19 +51,22 @@ const Navbar = () => {
           flex="1"
           mr="10"
         >
-          {["Proyek", "Pengalaman", "Sertifikat", "Kontak"].map((item) => (
-            <Box
-              key={item}
-              as={Link}
-              to={`/${item.toLowerCase()}`}
-              _hover={{ textDecoration: "none" }}
-              mx="4"
-            >
-              <Text fontSize="lg" fontFamily={montserratFont}>
-                {item}
-              </Text>
-            </Box>
-          ))}
+          {["Beranda", "Proyek", "Pengalaman", "Sertifikat", "Kontak"].map(
+            (item) => (
+              <Box
+                key={item}
+                as={Link}
+                to={item === "Beranda" ? "/" : `/${item.toLowerCase()}`}
+                _hover={{ textDecoration: "none" }}
+                mx="4"
+                onClick={scrollToTop}
+              >
+                <Text fontSize="lg" fontFamily={montserratFont}>
+                  {item}
+                </Text>
+              </Box>
+            )
+          )}
         </Flex>
 
         {/* Mobile Menu Button */}
@@ -87,21 +90,23 @@ const Navbar = () => {
           zIndex="999"
           display={{ base: "flex", md: "none" }} // Show only on mobile
         >
-          {["Proyek", "Pengalaman", "Sertifikat", "Kontak"].map((item) => (
-            <Box
-              key={item}
-              as={Link}
-              to={`/${item.toLowerCase()}`}
-              _hover={{ textDecoration: "none" }}
-              onClick={scrollToTop}
-              py="2"
-              textAlign="center"
-            >
-              <Text fontSize="lg" fontFamily={montserratFont} color="white">
-                {item}
-              </Text>
-            </Box>
-          ))}
+          {["Beranda", "Proyek", "Pengalaman", "Sertifikat", "Kontak"].map(
+            (item) => (
+              <Box
+                key={item}
+                as={Link}
+                to={item === "Beranda" ? "/" : `/${item.toLowerCase()}`}
+                _hover={{ textDecoration: "none" }}
+                onClick={scrollToTop}
+                py="2"
+                textAlign="center"
+              >
+                <Text fontSize="lg" fontFamily={montserratFont} color="white">
+                  {item}
+                </Text>
+              </Box>
+            )
+          )}
         </Flex>
       )}
     </>
