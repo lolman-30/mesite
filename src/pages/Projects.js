@@ -13,6 +13,7 @@ import {
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Gambar1 from "../assets/gambar/image1.png";
 import Gambar2 from "../assets/gambar/image2.png";
@@ -74,6 +75,10 @@ const Projects = () => {
     setIsOpen(false);
   };
 
+  // Menggunakan useBreakpointValue untuk mengatur responsivitas
+  const imageSize = useBreakpointValue({ base: "100%", md: "400px" });
+  const headingSize = useBreakpointValue({ base: "4xl", md: "6xl" });
+
   return (
     <div id="projects">
       <Box p={4}>
@@ -88,7 +93,7 @@ const Projects = () => {
             height="100px"
             align="center"
             fontWeight={"bold"}
-            fontSize={"6xl"}
+            fontSize={headingSize} // Ukuran heading responsif
           >
             Proyek
           </Heading>
@@ -96,17 +101,21 @@ const Projects = () => {
 
         <Container maxW={"5xl"} mt={12}>
           {projects.map((project, index) => (
-            <Flex mb="20px" key={index}>
+            <Flex
+              mb="20px"
+              key={index}
+              direction={{ base: "column", md: "row" }} // Responsif untuk arah layout
+            >
               <Image
                 h={200}
-                w={400}
+                w={imageSize} // Responsif ukuran gambar
                 cursor="pointer"
                 objectFit="cover"
                 src={project.image}
                 alt={`Proyek ${index + 1} Gambar`}
                 onClick={() => handleOpenModal(project)}
               />
-              <Box ml={6}>
+              <Box ml={{ base: 0, md: 6 }} mt={{ base: 4, md: 0 }}>
                 <Heading
                   as="h3"
                   size="md"
@@ -152,7 +161,6 @@ const Projects = () => {
                   src={selectedProject?.image}
                   alt={`${selectedProject?.title} Gambar`}
                 />
-                {/* <Text mt={4}>{selectedProject?.description}</Text> */}
               </ModalBody>
             </ModalContent>
           </Modal>

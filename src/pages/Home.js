@@ -18,7 +18,8 @@ const backgroundImageStyle = {
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   width: "100%",
-  height: "100%",
+  height: "auto", // Mengatur tinggi secara otomatis
+  minHeight: "100%", // Memberikan tinggi minimum 100% agar gambar menyesuaikan
   position: "absolute",
   top: 0,
   left: 0,
@@ -29,7 +30,7 @@ export default function WithBackgroundImage() {
   return (
     <Flex
       w={"full"}
-      h={"80vh"}
+      minH={"100vh"} // Pastikan tinggi minimum konsisten
       alignItems={"center"}
       justifyContent={"flex-start"}
       px={useBreakpointValue({ base: 4, md: 8 })}
@@ -50,24 +51,24 @@ export default function WithBackgroundImage() {
         zIndex="1"
       />
       <VStack
-        w={{ base: "full", md: "45%" }}
+        w={{ base: "full", md: "45%" }} // Lebar teks responsif
         spacing={6}
         align={"flex-start"}
         textAlign="left"
-        pl="8"
+        pl={useBreakpointValue({ base: 4, md: 8 })} // Padding teks responsif
         position="relative"
         zIndex="2"
       >
         <Text
           fontWeight={700}
           lineHeight={1.2}
-          fontSize={useBreakpointValue({ base: "3xl", md: "4xl" })}
+          fontSize={useBreakpointValue({ base: "2xl", md: "4xl" })} // Ukuran teks judul responsif
           color="white"
         >
           Perkenalkan saya Bagas
         </Text>
         <Text
-          fontSize={useBreakpointValue({ base: "md", md: "lg" })}
+          fontSize={useBreakpointValue({ base: "sm", md: "lg" })} // Ukuran teks deskripsi responsif
           textAlign="justify"
           color="white"
         >
