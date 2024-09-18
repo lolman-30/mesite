@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { Flex, Text, Box, Image } from "@chakra-ui/react";
+import { Flex, Text, Box, Image, IconButton } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import Gambar from "../assets/gambar/icon.png"; // Pastikan path ini benar
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [click, setClick] = useState(false);
-
   const montserratFont = "Montserrat, sans-serif";
 
   const toggleMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
-    setClick(!click);
   };
 
   const scrollToTop = () => {
@@ -34,71 +31,79 @@ const Navbar = () => {
         color="white"
         align="center"
         boxShadow="md"
-        className={`navbar ${showMobileMenu ? "mobile-menu-active" : ""}`}
+        justify="space-between"
       >
-        <button className="mobile-menu-button" onClick={toggleMobileMenu}>
-          <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-        </button>
-        <Flex align="center">
-          <Box
-            as={Link}
-            to="/"
-            _hover={{ textDecoration: "none" }}
-            onClick={scrollToTop}
-            ml="10"
-          >
-            <Image src={Gambar} alt="Logo" height="55px" />
-          </Box>
-        </Flex>
+        {/* Logo */}
+        <Box
+          as={Link}
+          to="/"
+          _hover={{ textDecoration: "none" }}
+          onClick={scrollToTop}
+        >
+          <Image src={Gambar} alt="Logo" height="55px" />
+        </Box>
 
+        {/* Desktop Menu */}
         <Flex
-          className={`main-menu ${showMobileMenu ? "mobile-menu-open" : ""}`}
+          display={{ base: "none", md: "flex" }} // Hide on mobile
           justify="flex-end"
-          flex="2"
+          align="center"
+          flex="1"
           mr="10"
         >
-          <Box
-            as={Link}
-            to="/project"
-            _hover={{ textDecoration: "none" }}
-            style={{ marginRight: "20px" }}
-          >
-            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Project
-            </Text>
-          </Box>
-          <Box
-            as={Link}
-            to="/experience"
-            _hover={{ textDecoration: "none" }}
-            style={{ marginRight: "20px" }}
-          >
-            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Experience
-            </Text>
-          </Box>
-          <Box
-            as={Link}
-            to="/certificate"
-            _hover={{ textDecoration: "none" }}
-            style={{ marginRight: "20px" }}
-          >
-            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Certificate
-            </Text>
-          </Box>
-          <Box
-            as={Link}
-            to="/contact"
-            _hover={{ textDecoration: "none" }}
-            style={{ marginRight: "20px" }}
-          >
-            <Text fontSize={click ? "md" : "lg"} fontFamily={montserratFont}>
-              Contact
-            </Text>
-          </Box>
+          {["Proyek", "Pengalaman", "Sertifikat", "Kontak"].map((item) => (
+            <Box
+              key={item}
+              as={Link}
+              to={`/${item.toLowerCase()}`}
+              _hover={{ textDecoration: "none" }}
+              mx="4"
+            >
+              <Text fontSize="lg" fontFamily={montserratFont}>
+                {item}
+              </Text>
+            </Box>
+          ))}
         </Flex>
+
+        {/* Mobile Menu Button */}
+        <IconButton
+          aria-label="Toggle Menu"
+          icon={showMobileMenu ? <CloseIcon /> : <HamburgerIcon />}
+          display={{ base: "flex", md: "none" }} // Show on mobile
+          onClick={toggleMobileMenu}
+        />
       </Flex>
+
+      {/* Mobile Menu */}
+      {showMobileMenu && (
+        <Flex
+          direction="column"
+          bg="gray.800"
+          py="4"
+          position="absolute"
+          top="80px"
+          width="100%"
+          zIndex="999"
+          display={{ base: "flex", md: "none" }} // Show only on mobile
+        >
+          {["Proyek", "Pengalaman", "Sertifikat", "Kontak"].map((item) => (
+            <Box
+              key={item}
+              as={Link}
+              to={`/${item.toLowerCase()}`}
+              _hover={{ textDecoration: "none" }}
+              onClick={scrollToTop}
+              py="2"
+              textAlign="center"
+            >
+              <Text fontSize="lg" fontFamily={montserratFont} color="white">
+                {item}
+              </Text>
+            </Box>
+          ))}
+        </Flex>
+      )}
     </>
   );
 };

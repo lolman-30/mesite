@@ -9,7 +9,6 @@ import {
 import { Box, Flex, ChakraProvider } from "@chakra-ui/react";
 
 import Navbar from "./components/Navbar";
-// import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
@@ -35,10 +34,10 @@ function MainContent() {
     <Box flex="1">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/project" element={<Projects />} />
-        <Route path="/experience" element={<Experiences />} />
-        <Route path="/certificate" element={<Certificates />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/proyek" element={<Projects />} />
+        <Route path="/pengalaman" element={<Experiences />} />
+        <Route path="/sertifikat" element={<Certificates />} />
+        <Route path="/kontak" element={<Contact />} />
       </Routes>
     </Box>
   );

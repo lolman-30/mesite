@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Button,
   Modal,
@@ -14,13 +14,14 @@ import {
   Heading,
   Stack,
   Image,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import Gambar1 from "../assets/sertif/Sertifikat FE.PNG";
 import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development_Bagas Dwi Pranata.pdf";
 import Gambar3 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
 import Gambar4 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
 
-const Card = ({ heading, description, imageUrl }) => {
+const Card = ({ heading, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleSertifikatkuClick = () => {
@@ -29,7 +30,14 @@ const Card = ({ heading, description, imageUrl }) => {
 
   return (
     <>
-      <Box flex="1" borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
+      <Box
+        flex="1"
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        p={5}
+        w={useBreakpointValue({ base: "100%", md: "45%", lg: "30%" })} // Responsif lebar card
+      >
         <Stack align={"start"} spacing={2}>
           <Box mt={2}>
             <Heading size="md">{heading}</Heading>
@@ -48,14 +56,16 @@ const Card = ({ heading, description, imageUrl }) => {
               },
             }}
           >
-            Details
+            Detail
           </Button>
         </Stack>
       </Box>
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent maxW="50vw">
+        <ModalContent maxW={useBreakpointValue({ base: "90vw", md: "50vw" })}>
+          {" "}
+          {/* Responsif ukuran modal */}
           <ModalHeader>{heading}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -72,12 +82,6 @@ const Card = ({ heading, description, imageUrl }) => {
 };
 
 const App = () => {
-  const [showMore, setShowMore] = useState(false);
-
-  const toggleShowMore = () => {
-    setShowMore(!showMore);
-  };
-
   return (
     <div id="certificates">
       <Box p={4}>
@@ -85,20 +89,22 @@ const App = () => {
           <Heading
             px="6"
             py="3"
-            top="0"
-            left="0"
             width="100%"
             color={"gray.600"}
-            height="100px"
-            align="center"
             fontWeight={"bold"}
-            fontSize={"6xl"}
+            fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
           >
-            Certificates
+            Sertifikat
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>
-          <Flex flexWrap="wrap" gridGap={7} justify="center">
+          <Flex
+            flexWrap="wrap"
+            gridGap={7}
+            justify="center"
+            align="start"
+            direction={useBreakpointValue({ base: "column", md: "row" })} // Responsif layout Flex
+          >
             <Card
               heading={"Sertifikat Front-End Engineering by Ruangguru"}
               imageUrl={Gambar1}
@@ -122,11 +128,6 @@ const App = () => {
               imageUrl={Gambar4}
             />
           </Flex>
-          {/* {showMore && ( */}
-          {/* <Flex flexWrap="wrap" gridGap={7} justify="center" mt={4}> */}
-          {/* Kartu-kartu tambahan akan ditampilkan di sini */}
-          {/* </Flex> */}
-          {/* )} */}
         </Container>
       </Box>
     </div>
