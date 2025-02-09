@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Flex, Text, Box, Image, IconButton } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import Gambar from "../assets/gambar/icon.png"; // Pastikan path ini benar
+import Gambar from "../assets/gambar/icon.png";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
