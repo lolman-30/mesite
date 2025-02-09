@@ -16,10 +16,13 @@ import {
   Image,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Gambar1 from "../assets/sertif/Sertifikat FE.PNG";
-import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development_Bagas Dwi Pranata.pdf";
+import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development.jpg";
 import Gambar3 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
 import Gambar4 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
+
+const MotionBox = motion(Box);
 
 const Card = ({ heading, imageUrl }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,13 +33,16 @@ const Card = ({ heading, imageUrl }) => {
 
   return (
     <>
-      <Box
+      <MotionBox
         flex="1"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
         p={5}
         w={useBreakpointValue({ base: "100%", md: "45%", lg: "30%" })} // Responsif lebar card
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <Stack align={"start"} spacing={2}>
           <Box mt={2}>
@@ -59,7 +65,7 @@ const Card = ({ heading, imageUrl }) => {
             Detail
           </Button>
         </Stack>
-      </Box>
+      </MotionBox>
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
@@ -94,7 +100,7 @@ const App = () => {
             fontWeight={"bold"}
             fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
           >
-            Sertifikat
+            Certificates
           </Heading>
         </Stack>
         <Container maxW={"5xl"} mt={12}>

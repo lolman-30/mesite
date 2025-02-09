@@ -9,8 +9,15 @@ import {
   Grid,
   GridItem,
   useBreakpointValue,
+  Stack,
+  Container,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
+
+const MotionBox = motion(Box);
+const MotionText = motion(Text);
+const MotionHStack = motion(HStack);
 
 const Contact = () => {
   const montserratFont = "Montserrat, sans-serif";
@@ -18,42 +25,51 @@ const Contact = () => {
   // Menentukan layout grid responsif berdasarkan ukuran layar
   const gridColumns = useBreakpointValue({ base: "1fr", md: "repeat(2, 1fr)" });
 
+  // Animasi untuk elemen teks dan grid
+  const fadeIn = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8 },
+  };
+
   return (
-    <Box p={8} maxW="800px" mx="auto">
+    <MotionBox p={8} maxW="800px" mx="auto" initial="initial" animate="animate">
       <VStack spacing={6}>
-        <Heading
-          px="6"
-          py="3"
-          top="0"
-          left="0"
-          width="100%"
-          color={"gray.600"}
-          height="100px"
-          align="center"
-          fontWeight={"bold"}
-          fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran font heading
-        >
-          Kontak
-        </Heading>
+        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
+          <Heading
+            px="6"
+            py="3"
+            width="100%"
+            color={"gray.600"}
+            fontWeight={"bold"}
+            fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
+          >
+            Contact
+          </Heading>
+        </Stack>
         <Grid templateColumns={gridColumns} gap={6} w="full">
-          {" "}
-          {/* Responsif kolom grid */}
-          <GridItem mr={useBreakpointValue({ base: 0, md: 5 })}>
-            {" "}
-            {/* Responsif margin */}
+          {/** Animasi untuk Grid Item */}
+          <MotionBox
+            as={GridItem}
+            mr={useBreakpointValue({ base: 0, md: 5 })}
+            {...fadeIn}
+          >
             <Text as="h1" fontSize="3xl" fontWeight="bold" mb={4}>
-              Ayo Kerja Sama
+              React Out Me
             </Text>
             <Text mb={4} textAlign="justify" fontFamily={montserratFont}>
-              Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif,
-              atau peluang untuk menjadi bagian dari visi Anda. Jika Anda
-              memiliki proyek menarik atau ide inovatif, mari kita berkolaborasi
-              dan mewujudkannya. Saya sangat antusias untuk mengeksplorasi
-              bagaimana kita dapat bekerja sama untuk mencapai tujuan perusahaan
-              Anda dan menciptakan sesuatu yang luar biasa.
+              If you're interested in collaborating on exciting projects,
+              innovative ideas, or exploring opportunities to bring your vision
+              to life, feel free to reach out. Let’s work together to achieve
+              your company’s goals and create something extraordinary.
             </Text>
-          </GridItem>
-          <GridItem ml={useBreakpointValue({ base: 0, md: 5 })}>
+          </MotionBox>
+
+          <MotionBox
+            as={GridItem}
+            ml={useBreakpointValue({ base: 0, md: 5 })}
+            {...fadeIn}
+          >
             <Text
               fontSize="lg"
               fontFamily={montserratFont}
@@ -61,18 +77,18 @@ const Contact = () => {
               mb={2}
               mt={5}
             >
-              Ikuti di media sosial
+              Follow Me in Media Social
             </Text>
-            <HStack
+            <MotionHStack
               spacing={4}
               justify={useBreakpointValue({ base: "center", md: "start" })}
+              {...fadeIn}
             >
               <Link href="https://github.com/lolman-30" target="_blank" mx="2">
                 <FaGithub fontSize="30px" />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/bagas-dwi-pranata-526506294?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BmRsMM7IiSMS4YIPr55BWCA%3D%3D
-              "
+                href="https://www.linkedin.com/in/bagas-dwi-pranata-526506294"
                 target="_blank"
                 mx="2"
               >
@@ -88,7 +104,7 @@ const Contact = () => {
               <Link href="https://t.me/bagasdpranata" target="_blank" mx="2">
                 <FaTelegram fontSize="30px" />
               </Link>
-            </HStack>
+            </MotionHStack>
             <Text
               fontSize="lg"
               fontFamily={montserratFont}
@@ -117,10 +133,10 @@ const Contact = () => {
             >
               <Text fontFamily={montserratFont}>+62 895 6379 14508</Text>
             </HStack>
-          </GridItem>
+          </MotionBox>
         </Grid>
       </VStack>
-    </Box>
+    </MotionBox>
   );
 };
 
