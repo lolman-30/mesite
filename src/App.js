@@ -8,9 +8,7 @@ import {
 } from "react-router-dom";
 import { Box, Flex, ChakraProvider, Text } from "@chakra-ui/react";
 
-import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Certificates from "./pages/Certificates";

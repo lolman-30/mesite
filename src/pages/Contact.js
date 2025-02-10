@@ -16,7 +16,6 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
 
 const MotionBox = motion(Box);
-const MotionText = motion(Text);
 const MotionHStack = motion(HStack);
 
 const Contact = () => {
