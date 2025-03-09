@@ -134,7 +134,7 @@ const Projects = () => {
         {/* Modal for Image Popup */}
         <Modal isOpen={isOpen} onClose={closeModal} size="lg">
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent maxW={"3xl"}>
             <ModalCloseButton />
             <ModalHeader>Image Preview</ModalHeader>
             <ModalBody>
