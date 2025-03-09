@@ -9,7 +9,6 @@ import {
 import { Box, Flex, ChakraProvider, Text } from "@chakra-ui/react";
 
 import Sidebar from "./components/Sidebar";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Certificates from "./pages/Certificates";
