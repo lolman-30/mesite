@@ -1,106 +1,87 @@
 import React from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  Text,
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Stack,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion"; // Import framer-motion
+import { Box, Text, VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import SectionMark from "../components/SectionMark";
 
-const MotionBox = motion(Box); // Define motion-enhanced Box
+const MotionBox = motion(Box);
 
-const Card = ({ heading, description }) => {
+const experiences = [
+  {
+    role: "Frontend Engineering",
+    org: "Studi Independen — Ruangguru Kampus Merdeka",
+    period: "Feb 2022 — Jul 2022",
+    description:
+      "Menyelesaikan program studi independen berfokus pada pengembangan frontend, membangun fondasi untuk membaca kebutuhan antarmuka dan menerjemahkannya ke kode.",
+  },
+  {
+    role: "Intensif Laravel Web Development",
+    org: "Sanbercode",
+    period: "Jan 2024 — Feb 2024",
+    description:
+      "Mendalami pengembangan backend dengan Laravel, dari struktur database hingga logika aplikasi, sebagai bekal membangun sistem yang lebih lengkap.",
+  },
+  {
+    role: "Data Entry Operator",
+    org: "PT Tata Bisnis Solusi",
+    period: "Okt 2024 — Des 2024",
+    description:
+      "Kerja kontrak 3 bulan menangani pengelolaan data secara teliti dan efisien, melatih ketelitian bekerja dengan tenggat dan volume data yang padat.",
+  },
+];
+
+const Experiences = () => {
   return (
-    <>
-      <MotionBox
-        flex="1"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-        p={5}
-        w={useBreakpointValue({ base: "100%", md: "45%", lg: "30%" })} // Responsif lebar card
-        initial={{ opacity: 0, y: 50 }} // Awal tersembunyi dan di bawah
-        animate={{ opacity: 1, y: 0 }} // Muncul ke posisi asli
-        transition={{ duration: 0.6 }} // Durasi animasi
-      >
-        <Stack align={"start"} spacing={2}>
-          <Box mt={2}>
-            <Heading size="md">{heading}</Heading>
-            <Text mt={1} fontSize={"sm"}>
-              {description}
+    <Box w="full" px={{ base: 5, md: 16 }} py={{ base: 12, md: 16 }} maxW="900px" mx="auto">
+      <SectionMark tag="experiences" title="Perjalanan singkat" />
+
+      <VStack align="stretch" spacing={0} position="relative">
+        <Box
+          position="absolute"
+          left={{ base: "5px", md: "5px" }}
+          top="8px"
+          bottom="8px"
+          width="2px"
+          bg="whiteAlpha.200"
+        />
+        {experiences.map((exp, i) => (
+          <MotionBox
+            key={exp.role}
+            position="relative"
+            pl={10}
+            pb={i === experiences.length - 1 ? 0 : 10}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+          >
+            <Box
+              position="absolute"
+              left="0"
+              top="4px"
+              w="12px"
+              h="12px"
+              borderRadius="full"
+              bg="ink.900"
+              border="2px solid"
+              borderColor="signal.500"
+            />
+            <Text fontFamily="mono" fontSize="xs" color="line.500" mb={1}>
+              {exp.period}
             </Text>
-          </Box>
-        </Stack>
-      </MotionBox>
-
-      <Modal isCentered>
-        <ModalOverlay />
-        <ModalContent maxW={useBreakpointValue({ base: "90vw", md: "50vw" })}>
-          {/* Responsif ukuran modal */}
-          <ModalHeader>{heading}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <div style={{ width: "100%", height: "50%", overflow: "hidden" }}>
-              {description}
-            </div>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-    </>
+            <Text fontFamily="heading" fontSize={{ base: "lg", md: "xl" }} color="slate.100" fontWeight="600">
+              {exp.role}
+            </Text>
+            <Text fontSize="sm" color="slate.400" mb={2}>
+              {exp.org}
+            </Text>
+            <Text fontSize="sm" color="slate.300" lineHeight="1.7" maxW="560px">
+              {exp.description}
+            </Text>
+          </MotionBox>
+        ))}
+      </VStack>
+    </Box>
   );
 };
 
-const App = () => {
-  return (
-    <div id="experiences">
-      <Box p={2}>
-        <Stack spacing={2} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading
-            px="6"
-            py="3"
-            color={"gray.600"}
-            fontWeight={"bold"}
-            fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
-          >
-            Experiences
-          </Heading>
-        </Stack>
-        <Container maxW={"5xl"} mt={12}>
-          <Flex
-            flexWrap="wrap"
-            gridGap={5}
-            justify="center"
-            align="start"
-            direction={useBreakpointValue({ base: "column", md: "row" })} // Responsif layout Flex
-          >
-            <Card
-              heading={
-                "Frontend Engineering - Studi Independen Ruangguru Kampus Merdeka"
-              }
-              description={"Februari 2022 - Juli 2022"}
-            />
-            <Card
-              heading={"Intensif Laravel Web Development - Sanbercode"}
-              description={"Januari 2024 - Februari 2024"}
-            />
-            <Card
-              heading={"Data Entry Operator - PT Tata Bisnis Solusi"}
-              description={"Oktober 2024 - Desember 2024"}
-            />
-          </Flex>
-        </Container>
-      </Box>
-    </div>
-  );
-};
-
-export default App;
+export default Experiences;

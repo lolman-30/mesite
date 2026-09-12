@@ -1,141 +1,135 @@
 import React from "react";
 import {
   Box,
-  Heading,
   Text,
   VStack,
   HStack,
   Link,
-  Grid,
-  GridItem,
-  useBreakpointValue,
-  Stack,
-  Container,
+  SimpleGrid,
+  Icon,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaTelegram,
+  FaEnvelope,
+  FaWhatsapp,
+} from "react-icons/fa";
+import SectionMark from "../components/SectionMark";
 
 const MotionBox = motion(Box);
-const MotionHStack = motion(HStack);
+
+const socials = [
+  { label: "GitHub", href: "https://github.com/lolman-30", icon: FaGithub },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/bagas-dwi-pranata-526506294",
+    icon: FaLinkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/bagasdpranata",
+    icon: FaInstagram,
+  },
+  { label: "Telegram", href: "https://t.me/bagasdpranata", icon: FaTelegram },
+];
 
 const Contact = () => {
-  const montserratFont = "Montserrat, sans-serif";
-
-  // Menentukan layout grid responsif berdasarkan ukuran layar
-  const gridColumns = useBreakpointValue({ base: "1fr", md: "repeat(2, 1fr)" });
-
-  // Animasi untuk elemen teks dan grid
-  const fadeIn = {
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8 },
-  };
-
   return (
-    <MotionBox p={8} maxW="800px" mx="auto" initial="initial" animate="animate">
-      <VStack spacing={6}>
-        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading
-            px="6"
-            py="3"
-            width="100%"
-            color={"gray.600"}
-            fontWeight={"bold"}
-            fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
-          >
-            Contact
-          </Heading>
-        </Stack>
-        <Grid templateColumns={gridColumns} gap={6} w="full">
-          {/** Animasi untuk Grid Item */}
-          <MotionBox
-            as={GridItem}
-            mr={useBreakpointValue({ base: 0, md: 5 })}
-            {...fadeIn}
-          >
-            <Text as="h1" fontSize="3xl" fontWeight="bold" mb={4}>
-              React Out Me
-            </Text>
-            <Text mb={4} textAlign="justify" fontFamily={montserratFont}>
-              If you're interested in collaborating on exciting projects,
-              innovative ideas, or exploring opportunities to bring your vision
-              to life, feel free to reach out. Let’s work together to achieve
-              your company’s goals and create something extraordinary.
-            </Text>
-          </MotionBox>
+    <Box w="full" px={{ base: 5, md: 16 }} py={{ base: 12, md: 16 }} maxW="800px" mx="auto">
+      <SectionMark tag="contact" title="Mari terhubung" />
 
-          <MotionBox
-            as={GridItem}
-            ml={useBreakpointValue({ base: 0, md: 5 })}
-            {...fadeIn}
+      <MotionBox
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <Text color="slate.300" fontSize={{ base: "sm", md: "md" }} lineHeight="1.8" mb={10}>
+          Tertarik berkolaborasi di proyek yang menarik, ide baru, atau
+          sekadar ngobrol soal peluang kerja? Jangan ragu untuk menghubungi
+          saya — mari kerjakan sesuatu yang bagus bersama.
+        </Text>
+      </MotionBox>
+
+      <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={6} mb={10}>
+        <VStack
+          align="start"
+          spacing={2}
+          borderLeft="2px solid"
+          borderColor="signal.500"
+          pl={4}
+        >
+          <HStack color="slate.500" fontFamily="mono" fontSize="xs">
+            <Icon as={FaEnvelope} />
+            <Text>email</Text>
+          </HStack>
+          <Text
+            as={Link}
+            href="mailto:bagasdwipranata@gmail.com"
+            fontSize="md"
+            color="slate.100"
+            _hover={{ color: "line.500" }}
           >
-            <Text
-              fontSize="lg"
-              fontFamily={montserratFont}
-              fontWeight="bold"
-              mb={2}
-              mt={5}
-            >
-              Follow Me in Media Social
-            </Text>
-            <MotionHStack
-              spacing={4}
-              justify={useBreakpointValue({ base: "center", md: "start" })}
-              {...fadeIn}
-            >
-              <Link href="https://github.com/lolman-30" target="_blank" mx="2">
-                <FaGithub fontSize="30px" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/bagas-dwi-pranata-526506294"
-                target="_blank"
-                mx="2"
-              >
-                <FaLinkedin fontSize="30px" />
-              </Link>
-              <Link
-                href="https://www.instagram.com/bagasdpranata"
-                target="_blank"
-                mx="2"
-              >
-                <FaInstagram fontSize="30px" />
-              </Link>
-              <Link href="https://t.me/bagasdpranata" target="_blank" mx="2">
-                <FaTelegram fontSize="30px" />
-              </Link>
-            </MotionHStack>
-            <Text
-              fontSize="lg"
-              fontFamily={montserratFont}
-              fontWeight="bold"
-              mb={2}
-              mt={5}
-            >
-              Email
-            </Text>
+            bagasdwipranata@gmail.com
+          </Text>
+        </VStack>
+
+        <VStack
+          align="start"
+          spacing={2}
+          borderLeft="2px solid"
+          borderColor="line.500"
+          pl={4}
+        >
+          <HStack color="slate.500" fontFamily="mono" fontSize="xs">
+            <Icon as={FaWhatsapp} />
+            <Text>whatsapp</Text>
+          </HStack>
+          <Text
+            as={Link}
+            href="https://wa.me/62895637914508"
+            target="_blank"
+            fontSize="md"
+            color="slate.100"
+            _hover={{ color: "line.500" }}
+          >
+            +62 895 6379 14508
+          </Text>
+        </VStack>
+      </SimpleGrid>
+
+      <Text fontFamily="mono" fontSize="xs" color="slate.500" mb={4}>
+        {"//"} temukan saya di media sosial
+      </Text>
+      <HStack spacing={5} flexWrap="wrap">
+        {socials.map((s) => (
+          <Link
+            key={s.label}
+            href={s.href}
+            target="_blank"
+            rel="noreferrer"
+            _hover={{ textDecoration: "none" }}
+          >
             <HStack
-              justify={useBreakpointValue({ base: "center", md: "start" })}
+              spacing={2}
+              border="1px solid"
+              borderColor="whiteAlpha.200"
+              px={4}
+              py={2}
+              color="slate.300"
+              _hover={{ color: "signal.500", borderColor: "signal.500" }}
+              transition="all 0.2s ease"
             >
-              <Text fontFamily={montserratFont}>bagasdwipranata@gmail.com</Text>
+              <Icon as={s.icon} />
+              <Text fontSize="sm">{s.label}</Text>
             </HStack>
-            <Text
-              fontSize="lg"
-              fontFamily={montserratFont}
-              fontWeight="bold"
-              mb={2}
-              mt={5}
-            >
-              No. HP
-            </Text>
-            <HStack
-              justify={useBreakpointValue({ base: "center", md: "start" })}
-            >
-              <Text fontFamily={montserratFont}>+62 895 6379 14508</Text>
-            </HStack>
-          </MotionBox>
-        </Grid>
-      </VStack>
-    </MotionBox>
+          </Link>
+        ))}
+      </HStack>
+    </Box>
   );
 };
 

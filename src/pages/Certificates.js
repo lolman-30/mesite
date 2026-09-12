@@ -1,143 +1,114 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Button,
+  Box,
+  Text,
+  SimpleGrid,
+  Image,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Stack,
-  Image,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Gambar1 from "../assets/sertif/Sertifikat FE.PNG";
-import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development.jpg";
-import Gambar3 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1.jpg";
-import Gambar4 from "../assets/sertif/Sertifikat Workshop Hima 2.PNG";
+import Gambar1 from "../assets/sertif/Sertifikat FE_opt.jpg";
+import Gambar2 from "../assets/sertif/Sertifikat Intensif_Laravel Web Development_opt.jpg";
+import Gambar3 from "../assets/sertif/SERTIFIKAT BAGAS DWI PRANATA-1_opt.jpg";
+import Gambar4 from "../assets/sertif/Sertifikat Workshop Hima 2_opt.jpg";
+import SectionMark from "../components/SectionMark";
+import CornerFrame from "../components/CornerFrame";
 
 const MotionBox = motion(Box);
 
-const Card = ({ heading, imageUrl }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const certificates = [
+  { heading: "Front-End Engineering", org: "Ruangguru", image: Gambar1 },
+  {
+    heading: "Intensif Laravel Web Development",
+    org: "SanberCode",
+    image: Gambar2,
+  },
+  {
+    heading: "Workshop — 2 Hari Belajar Menuju Internasional",
+    org: "Workshop",
+    image: Gambar3,
+  },
+  {
+    heading: "How To Learn Web Programming Fundamental #1",
+    org: "Workshop Hima",
+    image: Gambar4,
+  },
+];
 
-  const handleSertifikatkuClick = () => {
-    onOpen();
-  };
+const Certificates = () => {
+  const [selected, setSelected] = useState(null);
 
   return (
-    <>
-      <MotionBox
-        flex="1"
-        borderWidth="1px"
-        borderRadius="lg"
-        overflow="hidden"
-        p={5}
-        w={useBreakpointValue({ base: "100%", md: "45%", lg: "30%" })} // Responsif lebar card
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        <Stack align={"start"} spacing={2}>
-          <Box mt={2}>
-            <Heading size="md">{heading}</Heading>
-          </Box>
-          <Button
-            size={"md"}
-            variant="link"
-            colorScheme={"blue"}
-            fontWeight="semibold"
-            onClick={handleSertifikatkuClick}
-            sx={{
-              background: "none",
-              textDecoration: "none",
-              _hover: {
-                background: "none",
-              },
-            }}
-          >
-            Detail
-          </Button>
-        </Stack>
-      </MotionBox>
+    <Box w="full" px={{ base: 5, md: 16 }} py={{ base: 12, md: 16 }} maxW="1200px" mx="auto">
+      <SectionMark tag="certificates" title="Sertifikat & pelatihan" />
 
-      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={6}>
+        {certificates.map((cert, index) => (
+          <MotionBox
+            key={cert.heading}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: (index % 4) * 0.06 }}
+          >
+            <CornerFrame active={selected === cert.image}>
+              <Box
+                w="full"
+                h="180px"
+                overflow="hidden"
+                bg="ink.800"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Image
+                  src={cert.image}
+                  alt={cert.heading}
+                  w="full"
+                  h="full"
+                  objectFit="contain"
+                  cursor="pointer"
+                  loading="lazy"
+                  onClick={() => setSelected(cert.image)}
+                  transition="transform 0.3s ease"
+                  _hover={{ transform: "scale(1.03)" }}
+                />
+              </Box>
+            </CornerFrame>
+            <Text
+              fontFamily="mono"
+              fontSize="xs"
+              color="line.500"
+              mt={3}
+            >
+              {cert.org}
+            </Text>
+            <Text fontSize="sm" color="slate.200" mt={1} lineHeight="1.5">
+              {cert.heading}
+            </Text>
+          </MotionBox>
+        ))}
+      </SimpleGrid>
+
+      <Modal isOpen={!!selected} onClose={() => setSelected(null)} size="3xl" isCentered>
         <ModalOverlay />
-        <ModalContent maxW={useBreakpointValue({ base: "90vw", md: "50vw" })}>
-          {" "}
-          {/* Responsif ukuran modal */}
-          <ModalHeader>{heading}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image
-              src={imageUrl}
-              alt="Deskripsi Gambar"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+        <ModalContent bg="ink.800" borderRadius="2px">
+          <ModalCloseButton color="slate.100" />
+          <ModalHeader fontFamily="mono" fontSize="sm" color="line.500">
+            sertifikat
+          </ModalHeader>
+          <ModalBody pb={6}>
+            <Image src={selected} alt="Sertifikat" borderRadius="2px" w="full" />
           </ModalBody>
         </ModalContent>
       </Modal>
-    </>
+    </Box>
   );
 };
 
-const App = () => {
-  return (
-    <div id="certificates">
-      <Box p={4}>
-        <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading
-            px="6"
-            py="3"
-            width="100%"
-            color={"gray.600"}
-            fontWeight={"bold"}
-            fontSize={useBreakpointValue({ base: "4xl", md: "6xl" })} // Responsif ukuran heading
-          >
-            Certificates
-          </Heading>
-        </Stack>
-        <Container maxW={"5xl"} mt={12}>
-          <Flex
-            flexWrap="wrap"
-            gridGap={7}
-            justify="center"
-            align="start"
-            direction={useBreakpointValue({ base: "column", md: "row" })} // Responsif layout Flex
-          >
-            <Card
-              heading={"Sertifikat Front-End Engineering by Ruangguru"}
-              imageUrl={Gambar1}
-            />
-            <Card
-              heading={
-                "Sertifikat Intensif Laravel Web Development by SanberCode"
-              }
-              imageUrl={Gambar2}
-            />
-            <Card
-              heading={
-                "Sertifikat Workshop (2 Hari Belajar Menuju Internasional)"
-              }
-              imageUrl={Gambar3}
-            />
-            <Card
-              heading={
-                "Sertifikat Workshop (How To Learn Web Programming Fundamental #1)"
-              }
-              imageUrl={Gambar4}
-            />
-          </Flex>
-        </Container>
-      </Box>
-    </div>
-  );
-};
-
-export default App;
+export default Certificates;

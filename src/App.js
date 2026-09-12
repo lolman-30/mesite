@@ -1,102 +1,77 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useNavigate,
+  useLocation,
 } from "react-router-dom";
-import { Box, Flex, ChakraProvider, Text } from "@chakra-ui/react";
+import { Box, ChakraProvider, Flex, Text } from "@chakra-ui/react";
 
-import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Certificates from "./pages/Certificates";
-import Experiences from "./pages/Experiences";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
+import theme from "./theme";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home"; // dimuat langsung, ini halaman pertama yang dilihat orang
 
 import Icon from "./assets/gambar/icon.png";
 
-function MainContent() {
-  const navigate = useNavigate();
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+// Halaman selain Beranda baru diunduh saat orang benar-benar membukanya,
+// jadi kunjungan pertama ke Beranda tidak perlu menunggu kode semua halaman.
+const About = lazy(() => import("./pages/About"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Experiences = lazy(() => import("./pages/Experiences"));
+const Certificates = lazy(() => import("./pages/Certificates"));
+const Contact = lazy(() => import("./pages/Contact"));
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
-    if (isFirstLoad) {
-      navigate("/");
-      setIsFirstLoad(false); // Set first load to false after redirecting
-    }
-  }, [navigate, isFirstLoad]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
+function PageFallback() {
   return (
-    <Box flex="1">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Projects" element={<Projects />} />
-        <Route path="/Experiences" element={<Experiences />} />
-        <Route path="/Certificates" element={<Certificates />} />
-        <Route path="/Contact" element={<Contact />} />
-      </Routes>
+    <Flex minH="60vh" align="center" justify="center">
+      <Text fontFamily="mono" fontSize="sm" color="slate.500">
+        memuat halaman...
+      </Text>
+    </Flex>
+  );
+}
+
+function MainContent() {
+  return (
+    <Box flex="1" pt="72px" pb={{ base: "88px", md: 0 }}>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/experiences" element={<Experiences />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
     </Box>
   );
 }
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Deteksi perangkat berdasarkan lebar layar
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    // Jalankan deteksi saat pertama kali render
-    handleResize();
-
-    // Tambahkan event listener untuk resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener saat komponen unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  if (isMobile) {
-    // Tampilkan pesan jika diakses dari perangkat mobile
-    return (
-      <ChakraProvider>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="100vh"
-          bg="gray.100"
-        >
-          <Text fontSize="xl" textAlign="center">
-            Lebih baik buka di laptop/PC untuk pengalaman terbaik.
-          </Text>
-        </Box>
-      </ChakraProvider>
-    );
-  }
-
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Helmet>
-        <title>Bagas Dwi Pranata</title>
+        <title>Bagas Dwi Pranata — Web Developer</title>
         <link rel="icon" type="image/png" href={Icon} />
       </Helmet>
 
       <Router>
+        <ScrollToTop />
         <Flex direction="column" minHeight="100vh">
-          {/* <Navbar /> */}
-          <Sidebar />
-          <Box flex="1" ml="250px" mt="0">
-            <MainContent />
-          </Box>
+          <Navbar />
+          <MainContent />
+          <Footer />
         </Flex>
       </Router>
     </ChakraProvider>
